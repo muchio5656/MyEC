@@ -58,10 +58,11 @@
               <p>Log out</p>
             </a>
           </li>
-          
+         <form action="search.html" method="post">
           <li class="nav-item">
-            <input class="form-control" type="text" placeholder="キーワードで探す">
+            <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
+            </form>
         </ul>
       </div>
     </div>
@@ -71,7 +72,7 @@
        <div align="center" class="alert alert-primary" role="alert">
   入力内容確認
             </div>
-      <form><br><br>
+      <form action="update.html" method=""><br><br>
           <div class="row">
   <div class="form-group col s6">
     <label >Eメールアドレス</label>
@@ -96,9 +97,10 @@
   
 <div align="center" class="row">
 		<div class="input-field col s6">
-      
-      <button type="button" class="btn btn-default">削除</button>
-<button type="button" class="btn btn-primary">更新</button>
+            <a href="usedata.html">
+               <button type="button" class="btn btn-default">戻る</button>
+            </a>
+<button type="submit" class="btn btn-primary">a更新</button>
 
           </div>
     </div></form>
