@@ -1,8 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-      
+
     <title>管理者ログイン</title>
 
     <!--     Fonts and icons     -->
@@ -13,10 +16,10 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 
-      	
+
   </head>
   <body>
-      
+
    <div class="section section-signup" style="background-image: url('assets/img/102.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
         <div class="container">
           <div class="row">
@@ -24,7 +27,7 @@
               <form class="form" method="#" action="masterlist.html">
                 <div class="card-header text-center">
                   <h3 class="card-title title-up">管理者ページへ</h3>
-                  
+
                 </div>
                 <div class="card-body">
                   <div class="input-group no-border">
@@ -35,7 +38,7 @@
                     <input type="text" class="form-control" placeholder="メールアドレス">
                   </div>
                   <div class="input-group no-border">
-                    
+
                   </div>
                   <div class="input-group no-border">
                     <div class="input-group-prepend">
@@ -44,7 +47,7 @@
                     </div>
                     <input type="text" class="form-control" placeholder="パスワード">
                   </div>
-                 
+
                 </div>
                 <div class="card-footer text-center">
                   <btn class="btn  btn-round btn-lg">aGo</btn>
@@ -53,13 +56,13 @@
             </div>
           </div>
           <div class="col text-center">
-            
+
           </div>
-            
+
         </div>
       </div>
-      
-      
+
+
 
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>

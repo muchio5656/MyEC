@@ -1,13 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>商品更新：管理者専用</title>
+    <title>ユーザリスト：管理者専用</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
     <!--     Fonts and icons     -->
@@ -22,76 +25,99 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      
-     <div class="alert alert-danger" role="alert">
-  <h1>商品更新</h1>
-         
-          </div>
-      
-      <div class="container">
-      <form　action="itemupdateconfile.html" method="#"><br><br>
-          <div class="row">
-  <div class="form-group col s4">
-    <label for="exampleInputEmail1">アイテムID</label>
-    <input type="email" class="form-control" value="001" readonly>
-  </div>
-          <div class="form-group col s4">
-    <label>商品名</label>
-    <input type="text" class="form-control"  placeholder="商品名">
-  </div>
-          </div>
-          <div class="row">
-  <div class="form-group col s6">
-    <label for="exampleInputEmail1">単価</label>
-    <input type="email" class="form-control" placeholder="単価">
-  </div>
-          <div class="form-group col s6">
-    <label>商品画像</label>
-    <input type="file" >
-  </div>
-          <br>
-          <div class="row">
-  <div class="form-group col s6">
-    <label for="exampleInputPassword1">売上数</label>
-    <input type="text" class="form-control"  placeholder="売上数">
-              </div></div></div>
-           <div class="form-group col s4">
-    <label>商品詳細</label>
-    <input type="text" class="form-control"  placeholder="商品詳細">
-  </div>
-          <br><br>
 
-  
-<div align="center" class="input-field col s6">
-      
-<button type="submit" class="btn btn-danger">更新</button>
+     <div class="alert alert-danger" role="alert">
+  <h1>ユーザリスト</h1>
+
           </div>
-          </form>
-      </div>
-      <br><br><br><br><br><br><br><br>
-      
+
+      <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ユーザID</th>
+                    <th>ユーザ名</th>
+                    <th>Eメールアドレス</th>
+                    <th>住所</th>
+                     <th>生年月日</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>田中太郎</td>
+                    <th>muchinanoka@icloud.com</th>
+                    <th>青森県弘前市鬼沢字猿沢218</th>
+                     <th>2020/02/02</th>
+                    <th>
+                        <a href="userDelete.html">
+                        <button type="button" class="btn btn-default">削除</button>
+                        </a></th>
+
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>田中太郎</td>
+                    <th>muchinanoka@icloud.com</th>
+                    <th>青森県弘前市鬼沢字猿沢218</th>
+                     <th>2020/02/02</th>
+               　　　<th><button type="button" class="btn btn-default">削除</button></th>
+
+
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td>田中太郎</td>
+                    <th>muchinanoka@icloud.com</th>
+                    <th>青森県弘前市鬼沢字猿沢218</th>
+                    <th>2020/02/02</th>
+                    <th>
+                        <a href="userDelete.html">
+                        <button type="button" class="btn btn-default">削除</button>
+                        </a>
+                    </th>
+
+                </tr>
+                <tr>
+                <td></td>
+                    <th></th>
+                    <th><!-- Example split danger button -->
+<div class="btn-group">
+
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div></th>
+                </tr>
+                <tr>
+            </tbody>
+
+        </table>
       <div align="center">
           <a href="logout.html">
           <button type="button" class="btn btn-default">ログアウト</button>
           </a>
       </div>
 
-      
-      
+
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.</div>
       </div>
     </footer>
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

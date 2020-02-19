@@ -1,13 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Thank you!!</title>
+    <title>登録完了</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
     <!--     Fonts and icons     -->
@@ -36,48 +39,50 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="#">ビール</a>
-              <a class="dropdown-item" href="#">ウィスキー</a>
-                <a class="dropdown-item" href="#">日本酒・焼酎</a>
-                <a class="dropdown-item" href="#">ワイン</a>
-                <a class="dropdown-item" href="#">その他お酒</a>
+              <a class="dropdown-item" href="category.html">ビール</a>
+              <a class="dropdown-item" href="category.html">ウィスキー</a>
+                <a class="dropdown-item" href="category.html">日本酒・焼酎</a>
+                <a class="dropdown-item" href="category.html">ワイン</a>
+                <a class="dropdown-item" href="category.html">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-black" href="" target="_blank">
+            <a class="nav-link btn btn-black" href="logout.html" target="_blank">
               <p>Log out</p>
             </a>
           </li>
           <form action="search.html" method="post">
+         <form action="search.html" method="post">
           <li class="nav-item">
             <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
             </form>
+            </form>
         </ul>
       </div>
     </div>
-  </nav><div class="section section-signup" style="background-image: url('assets/img/202.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
+  </nav><div class="section section-signup" style="background-image: url('assets/img/800.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
         <div class="container">
           <div class="row">
             <div class="card card-signup" data-background-color="black">
               <form class="form" method="" action="">
                 <div class="card-header text-center">
-                  <h1 class="card-title title-up">Thank you</h1>
-                  
+                  <h1 class="card-title title-up">Welcome!!</h1>
+
                 </div>
-                <div align="center">2020/12/31お届け予定</div>
+                <div align="center">登録完了しました</div>
                 <div class="card-footer text-center">
-                  <a href="top.html" class="btn btn-round btn-lg">TOPページへ</a>
+                  <a href="logIn.html" class="btn btn-round btn-lg">ログイン画面へ</a>
                 </div>
               </form>
             </div>
@@ -87,28 +92,28 @@
         </div>
       </div>
 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
+
+
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
-      
-      
-      
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

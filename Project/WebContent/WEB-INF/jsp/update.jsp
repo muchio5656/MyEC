@@ -1,9 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -36,14 +39,14 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
               <a class="dropdown-item" href="#">ビール</a>
               <a class="dropdown-item" href="#">ウィスキー</a>
@@ -51,98 +54,85 @@
                 <a class="dropdown-item" href="#">ワイン</a>
                 <a class="dropdown-item" href="#">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-black" href="" target="_blank">
               <p>Log out</p>
             </a>
           </li>
-          
+         <form action="search.html" method="post">
           <li class="nav-item">
-            <input class="form-control" type="text" placeholder="キーワードで探す">
+            <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
+            </form>
         </ul>
       </div>
     </div>
   </nav><br><br><br>
 
       <div class="container">
-     <div align="center" class="alert alert-primary" role="alert">
-  購入詳細
+       <div align="center" class="alert alert-primary" role="alert">
+  入力内容確認
             </div>
-      <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>   </th>
-                    <th>購入日時</th>
-                    <th>配送方法</th>
-                     <th>購入金額</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <th>2020/01/01</th>
-                    <th>通常配送</th>
-                     <th>1000円</th>
-                </tr>
-                
-               
-            </tbody>
-            
-        </table>
-      
-          <br><br><br><br><br>
-      <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>   </th>
-                    <th>商品名</th>
-                    <th>単価</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <th>角瓶</th>
-                    <th>1400円</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <th>通常配送</th>
-                    <th>〇円</th>
+      <form action="update.html" method=""><br><br>
+          <div class="row">
+  <div class="form-group col s6">
+    <label >Eメールアドレス</label>
+    <input type="email" class="form-control" value="muchinanoka@icloud.com" readonly>
+  </div>
+          <div class="form-group col s6">
+    <label>名前</label>
+     <input type="text" class="form-control" value="棟方俊樹" readonly>
+  </div>
+          </div><br>
+           <div class="row">
+  <div class="form-group col s12">
+    <label >住所</label>
+    <input type="text" class="form-control" value="青森県弘前市鬼沢字猿沢218" readonly>
 
-                </tr>
-                
-               
-            </tbody>
-            
-        </table>
-      
-      
+              </div></div><br><br>
+
+          <div align="center">上記内容で更新してよろしいでしょうか？？</div>
+
+
+
+
+<div align="center" class="row">
+		<div class="input-field col s6">
+            <a href="usedata.html">
+               <button type="button" class="btn btn-default">戻る</button>
+            </a>
+<button type="submit" class="btn btn-primary">a更新</button>
+
+          </div>
+    </div></form>
+      <br><br><br><br><br>
+
+
+
       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
+
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
-      
-      
-      
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

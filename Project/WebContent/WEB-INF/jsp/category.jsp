@@ -1,13 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>検索結果</title>
+    <title>カテゴリー名</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
     <!--     Fonts and icons     -->
@@ -22,10 +25,10 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg bg-primary ">
+      <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="TopServlet" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="top.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
           Favoul
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,33 +39,34 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="#">ビール</a>
-              <a class="dropdown-item" href="#">ウィスキー</a>
-                <a class="dropdown-item" href="#">日本酒・焼酎</a>
-                <a class="dropdown-item" href="#">ワイン</a>
-                <a class="dropdown-item" href="#">その他お酒</a>
+              <a class="dropdown-item" href="category.html">ビール</a>
+              <a class="dropdown-item" href="category.html">ウィスキー</a>
+                <a class="dropdown-item" href="category.html">日本酒・焼酎</a>
+                <a class="dropdown-item" href="category.html">ワイン</a>
+                <a class="dropdown-item" href="category.html">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-black" href="" target="_blank">
+            <a class="nav-link btn btn-black" href="logout.html" target="_blank">
               <p>Log out</p>
             </a>
           </li>
-          
-         <form action="search.html" method="post">
+          <form action="search.html" method="post">
+          <form action="search.html" method="post">
           <li class="nav-item">
             <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
+            </form>
             </form>
         </ul>
       </div>
@@ -72,7 +76,7 @@
       <div class="container">
         <div class="title">
       <div class="alert alert-primary" role="alert">
-  <h1>検索結果</h1>
+  <h1>カテゴリー名</h1>
           <h5>５件ヒットしました</h5>
             </div></div><br><br>
       <div class="card" style="width: 20rem; margin: 22px">
@@ -80,14 +84,15 @@
   <img class="card-img-top" src="assets/img/1000.jpg" alt="Top1">
           </a>
   <div class="card-body">
-      <a href="itemDelete.html">
+      <a href="itemDitaile.html">
     <h4 class="card-title">アイテム名</h4>
       </a>
     <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
       <p>○○○円</p>
-    <a href="car.html" class="btn btn-primary">カートに入れる</a>
+    <a href="#" class="btn btn-primary">カートに入れる</a>
   </div>
-</div><div class="card" style="width: 20rem; margin: 22px">
+</div>
+          <div class="card" style="width: 20rem; margin: 22px">
   <img class="card-img-top" src="assets/img/1001.jpg" alt="Top2">
   <div class="card-body">
     <h4 class="card-title">アイテム名</h4>
@@ -95,7 +100,8 @@
        <p>○○○円</p>
     <a href="#" class="btn btn-primary">カートに入れる</a>
   </div>
-</div><div class="card" style="width: 20rem; margin: 22px">
+</div>
+          <div class="card" style="width: 20rem; margin: 22px">
   <img class="card-img-top" src="assets/img/1002.jpg" alt="Top3">
   <div class="card-body">
     <h4 class="card-title">アイテム名</h4>
@@ -129,9 +135,10 @@
     <a href="#" class="btn btn-primary">カートに入れる</a>
   </div>
 </div>
-          
+
         </div>
-       <br><br>
+
+      <br><br>
       	<div style=" margin-left:850px;">
       <ul class="pagination">
                 <li class="page-item">
@@ -156,23 +163,23 @@
               </ul>
       </div>
       <br><br>
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
-      
-      
-      
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

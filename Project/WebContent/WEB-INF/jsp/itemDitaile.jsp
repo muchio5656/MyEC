@@ -1,13 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>ユーザーデータ更新</title>
+    <title>アイテム名</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
     <!--     Fonts and icons     -->
@@ -22,7 +25,7 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg bg-primary " >
+      <nav class="navbar navbar-expand-lg bg-primary ">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="TopServlet" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
@@ -36,14 +39,14 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
               <a class="dropdown-item" href="#">ビール</a>
               <a class="dropdown-item" href="#">ウィスキー</a>
@@ -51,14 +54,14 @@
                 <a class="dropdown-item" href="#">ワイン</a>
                 <a class="dropdown-item" href="#">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-black" href="" target="_blank">
               <p>Log out</p>
             </a>
           </li>
-         <form action="search.html" method="post">
+       <form action="search.html" method="post">
           <li class="nav-item">
             <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
@@ -66,70 +69,59 @@
         </ul>
       </div>
     </div>
-  </nav><br><br><br>
+  </nav>
 
       <div class="container">
-       <div align="center" class="alert alert-primary" role="alert">
-  入力内容確認
-            </div>
-      <form action="update.html" method=""><br><br>
-          <div class="row">
-  <div class="form-group col s6">
-    <label >Eメールアドレス</label>
-    <input type="email" class="form-control" value="muchinanoka@icloud.com" readonly>
+
+        </div>
+
+
+     <div class="container">
+            <div class="alert alert-primary" role="alert">
+  商品詳細
+            </div><br><br>
+
+    <div class="card mb-4">
+  <img class="card-img-top" src="assets/img/1000.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h1 class="card-title">サントリー角瓶</h1>
+    <p class="card-text">商品紹介
+■国内NO.1ウイスキーのサントリー「角瓶」とは
+
+「日本人の舌に合う日本のウイスキーをつくりたい」。
+
+1937年、壽屋(現サントリー)創業者の鳥井信治郎が十数年かけて完成させたウイスキーが「角瓶」です。
+
+その繊細な味わいは日本人の味覚を満足させ、当時の人々の心を豊かにしました。その後70年以上にわたって日本の食卓で愛され続け、2014年には過去最高販売数量を更新(※1)。国内NO.1ウイスキー(※2)となりました。
+
+※2 サントリー出
+
+
+
+原材料・成分
+モルト、グレーン</p>
+
+      <div align="right"><h2>○○○円</h2>
+      <a href="car.html" class="btn btn-primary btn-lg">カートに入れる</a></div>
   </div>
-          <div class="form-group col s6">
-    <label>名前</label>
-     <input type="text" class="form-control" value="棟方俊樹" readonly>
-  </div>
-          </div><br>
-           <div class="row">
-  <div class="form-group col s12">
-    <label >住所</label>
-    <input type="text" class="form-control" value="青森県弘前市鬼沢字猿沢218" readonly>
-
-              </div></div><br><br>
-          
-          <div align="center">上記内容で更新してよろしいでしょうか？？</div>
+</div>
+        </div>
 
 
 
-  
-<div align="center" class="row">
-		<div class="input-field col s6">
-            <a href="usedata.html">
-               <button type="button" class="btn btn-default">戻る</button>
-            </a>
-<button type="submit" class="btn btn-primary">a更新</button>
 
-          </div>
-    </div></form>
-      <br><br><br><br><br>
-      
-      
-      
-      </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
-      
-      
-      
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

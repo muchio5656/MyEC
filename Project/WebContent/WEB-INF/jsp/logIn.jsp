@@ -1,14 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>おつまみに合う商品紹介</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+    <title>ログインページ</title>
 
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -18,11 +16,10 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
+
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg bg-primary">
+      <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="1">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="top.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
@@ -36,14 +33,14 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
               <a class="dropdown-item" href="category.html">ビール</a>
               <a class="dropdown-item" href="category.html">ウィスキー</a>
@@ -51,7 +48,7 @@
                 <a class="dropdown-item" href="category.html">ワイン</a>
                 <a class="dropdown-item" href="category.html">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-black" href="logout.html" target="_blank">
@@ -59,74 +56,85 @@
             </a>
           </li>
           <form action="search.html" method="post">
+         <form action="search.html" method="post">
           <li class="nav-item">
             <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
+            </form>
             </form>
         </ul>
       </div>
     </div>
   </nav>
+   <div class="section section-signup" style="background-image: url('assets/img/200.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
+        <div class="container">
+            <div align="center" class="alert alert-danger" role="alert">
+  入力内容が正しくありません
+            </div>
+          <div class="row">
+            <div class="card card-signup" data-background-color="black">
+              <form class="form" method="#" action="top.html">
+                <div class="card-header text-center">
+                  <h3 class="card-title title-up">Login</h3>
 
-      <div class="container">
-        <div class="title">
-      <div class="alert alert-primary" role="alert">
-  <h1>このおつまみに合う商品のご紹介</h1>
-            </div></div><br><br>
-          <div class="card mb-4">
-  <img class="card-img-top" src="assets/img/600.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h4 class="card-title">料理名</h4>
-    <p class="card-text">詳細</p>
-  </div>
-</div>
-      <div class="card" style="width: 20rem; margin: 22px">
-          <a href="itemDitaile.html">
-  <img class="card-img-top" src="assets/img/1000.jpg" alt="Top1">
-          </a>
-  <div class="card-body">
-      <a href="itemDitaile.html">
-    <h4 class="card-title">アイテム名</h4>
-      </a>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-      <p>○○○円</p>
-    <a href="car.html" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div>
-          <div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1001.jpg" alt="Top2">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-    <a href="car.html" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div>
-          <div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1002.jpg" alt="Top3">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-    <a href="car.html" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div>
-          
-          
+                </div>
+                <div class="card-body">
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="メールアドレス">
+                  </div>
+                  <div class="input-group no-border">
+
+                  </div>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="パスワード">
+                  </div>
+
+                </div>
+                <div class="card-footer text-center">
+                  <a href="#" class="btn  btn-round btn-lg">a</a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col text-center">
+            <a href="userInsert.html" class="btn  btn-round btn-white btn-lg" target="_blank">新規登録</a>
+              <br><br><br><br><br><br><br><br><br><br>
+                          <a href="masterlogin.html" class="btn  btn-round btn-white btn-lg" target="_blank">管理者ページへ</a>
+
+          </div>
+
         </div>
-      
-    
+      </div>
+
+
+
+
+
+
+
+
+
+
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
-      
-      
-      
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

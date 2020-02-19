@@ -1,13 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>登録完了</title>
+    <title>新規登録</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
     <!--     Fonts and icons     -->
@@ -22,10 +25,10 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="1">
+      <nav class="navbar navbar-expand-lg bg-primary " >
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="top.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="TopServlet" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
           Favoul
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,81 +39,90 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="category.html">ビール</a>
-              <a class="dropdown-item" href="category.html">ウィスキー</a>
-                <a class="dropdown-item" href="category.html">日本酒・焼酎</a>
-                <a class="dropdown-item" href="category.html">ワイン</a>
-                <a class="dropdown-item" href="category.html">その他お酒</a>
+              <a class="dropdown-item" href="#">ビール</a>
+              <a class="dropdown-item" href="#">ウィスキー</a>
+                <a class="dropdown-item" href="#">日本酒・焼酎</a>
+                <a class="dropdown-item" href="#">ワイン</a>
+                <a class="dropdown-item" href="#">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-black" href="logout.html" target="_blank">
+            <a class="nav-link btn btn-black" href="" target="_blank">
               <p>Log out</p>
             </a>
           </li>
-          <form action="search.html" method="post">
-         <form action="search.html" method="post">
+        <form action="search.html" method="post">
           <li class="nav-item">
             <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
             </form>
-            </form>
         </ul>
       </div>
     </div>
-  </nav><div class="section section-signup" style="background-image: url('assets/img/800.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
-        <div class="container">
-          <div class="row">
-            <div class="card card-signup" data-background-color="black">
-              <form class="form" method="" action="">
-                <div class="card-header text-center">
-                  <h1 class="card-title title-up">Welcome!!</h1>
-                  
-                </div>
-                <div align="center">登録完了しました</div>
-                <div class="card-footer text-center">
-                  <a href="logIn.html" class="btn btn-round btn-lg">ログイン画面へ</a>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="col text-center">
-          </div>
-        </div>
-      </div>
+  </nav><br><br><br>
 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      <div class="container">
+      <div align="center" class="alert alert-primary" role="alert">
+  新規登録</div>
+           <div align="center" class="alert alert-danger" role="alert">
+  未成年の方は登録できません。※お酒は二十歳になってから
+            </div>
+      <form　action="insertConfile.html" method="#"><br><br>
+          <div class="row">
+  <div class="form-group col s6">
+    <label for="exampleInputEmail1">Eメールアドレス</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+          <div class="form-group col s6">
+    <label>名前</label>
+    <input type="text" class="form-control"  placeholder="田中　太朗">
+  </div>
+          </div><br>
+          <div class="row">
+              <div class="form-group col s6">
+    <label >住所</label>
+    <input type="text" class="form-control"  placeholder="○○県○○市1-1-1">
+                   </div> <div class="form-group col s6">
+    <label >生年月日</label>
+    <input type="date" class="form-control">
+                   </div></div>
+           <div class="row">
+              <div class="form-group col s6">
+    <label for="exampleInputPassword1">パスワード</label>
+    <input type="password" class="form-control"  >
+                   </div> <div class="form-group col s6">
+    <label for="exampleInputPassword2">パスワード：確認用</label>
+    <input type="password" class="form-control">
+                   </div></div>
+          <br><br>
+
+  <div align="center">
+      <button type="submit" class="btn btn-primary">a登録</button>
+          </div>
+      <br><br><br><br><br>
+     </form>
+      </div>
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
-      
-      
-      
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

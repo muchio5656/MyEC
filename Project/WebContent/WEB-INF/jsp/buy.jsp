@@ -1,9 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -36,14 +39,14 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
               <a class="dropdown-item" href="category.html">ビール</a>
               <a class="dropdown-item" href="category.html">ウィスキー</a>
@@ -51,7 +54,7 @@
                 <a class="dropdown-item" href="category.html">ワイン</a>
                 <a class="dropdown-item" href="category.html">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-black" href="logout.html" target="_blank">
@@ -68,14 +71,14 @@
     </div>
   </nav>
 
-      
-      
-      
+
+
+
        <div class="container">
       <div align="center" class="alert alert-primary" role="alert">配送方法を決めてください
            </div>
            <form action="buyconfirm.html" method="#">
- 
+
     <div align="center"　class="col-5 ml-3">
         <table class="table table-striped">
             <thead>
@@ -105,7 +108,7 @@
                     <td>メーカーズ</td>
                     <th>1000円</th>
                     <th>1000円</th>
-                    
+
                 </tr>
                 <tr>
                 <td></td>
@@ -138,15 +141,15 @@
 
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
-      
-      
-      
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

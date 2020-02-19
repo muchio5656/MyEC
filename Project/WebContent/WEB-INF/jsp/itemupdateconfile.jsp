@@ -1,13 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>商品登録：管理者専用</title>
+    <title>商品更新：管理者専用</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
     <!--     Fonts and icons     -->
@@ -22,66 +25,76 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      
+
      <div class="alert alert-danger" role="alert">
-  <h1>商品登録</h1>
-         
+  <h1>商品更新確認</h1>
+
           </div>
-      
-       <div class="container">
-      <form action="iteminsertconfile.html" method=""><br><br>
-           <div class="row">
+
+      <div class="container">
+      <form action="itemUpdate.html" method=""><br><br>
+          <div class="row">
+  <div class="form-group col s4">
+    <label for="exampleInputEmail1">アイテムID</label>
+    <input type="email" class="form-control" value="001" readonly>
+  </div>
+          <div class="form-group col s4">
+    <label>商品名</label>
+    <input type="text" class="form-control"  value="商品名" readonly>
+  </div>
+          </div>
+          <div class="row">
   <div class="form-group col s6">
-    <label for="exampleInputEmail1">商品名</label>
-    <input type="text" class="form-control"  placeholder="商品名">
+    <label for="exampleInputEmail1">単価</label>
+    <input type="email" class="form-control" value="単価" readonly>
   </div>
           <div class="form-group col s6">
-    <label>単価</label>
-    <input type="number" class="form-control"  placeholder="1111">
+    <label>商品画像</label>
+    <input type="file" >
   </div>
-          </div><br>
+          <br>
           <div class="row">
-              <div class="form-group col s6">
-    <label for="exampleInputPassword1">商品詳細</label>
-    <input type="textarea" class="form-control" >
-                   </div> <div class="form-group col s6">
-    <label >商品画像</label>
-    <input type="file" class="form-control">
-                   </div></div><br><br>
-          
-        
+  <div class="form-group col s6">
+    <label for="exampleInputPassword1">売上数</label>
+    <input type="text" class="form-control"  value="売上数" readonly>
+              </div></div></div>
+           <div class="form-group col s4">
+    <label>商品詳細</label>
+    <input type="text" class="form-control"  value="商品詳細" readonly>
+  </div>
+          <br><br>
 
-  <div align="center" class="input-field col s6">
-      
-<button type="submit" class="btn btn-danger">登録</button>
+  <div align="center">上記内容で更新してよろしいでしょうか？？</div>
+<div align="center" class="input-field col s6">
+
+<button type="submit" class="btn btn-danger">更新</button>
           </div>
+          </form>
+      </div>
+      <br><br><br><br><br><br><br><br>
 
-<br><br><br><br><br><br><br><br>
-          
-           </form></div>
-      
       <div align="center">
           <a href="logout.html">
           <button type="button" class="btn btn-default">ログアウト</button>
           </a>
       </div>
 
-      
-      
+
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.</div>
       </div>
     </footer>
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

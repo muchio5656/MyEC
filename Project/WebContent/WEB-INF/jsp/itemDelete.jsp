@@ -1,13 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>ユーザ削除確認：管理者専用</title>
+    <title>アイテム削除確認：管理者専用</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
     <!--     Fonts and icons     -->
@@ -22,67 +25,61 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      
+
      <div class="alert alert-danger" role="alert">
-  <h1>ユーザ削除確認</h1>
+  <h1>アイテム削除確認</h1>
           </div><br><br>
+      <form action="itemList.html" method="">
       <table class="table table-striped">
             <thead>
                 <tr>
                     <th>   </th>
-                    <th>ユーザID</th>
-                    <th>ユーザ名</th>
-                    <th>住所</th>
-                     <th>生年月日</th>
+                    <th>アイテムID</th>
+                    <th>商品名</th>
+                    <th>単価</th>
+                     <th>売上数</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td></td>
                     <th>1</th>
-                    <th>棟方俊樹</th>
-                    <th>青森県弘前市鬼沢字猿沢218</th>
-                     <th>1995/12/19</th>
+                    <th>ジャックダニエル</th>
+                    <th>1300円</th>
+                     <th>１０個</th>
                 </tr>
             </tbody>
         </table><br><br><br><br>
             <h1 align="center">本当に削除してよろしいですか？？</h1><br><br>
 <div align="center" class="row">
 		<div class="input-field col s6">
-      
-      <a href="userList.html">
-         <button type="button" class="btn btn-default">戻る</button>
-            </a>    
-            <form action="userList.html" method="">
+
+      <button type="button" class="btn btn-default">戻るa</button>
 <button type="submit" class="btn btn-danger">削除</button>
-            </form>
+
 <br><br><br><br><br><br><br><br>
           </div>
-    </div>
-      
-      
+          </div></form>
+
       <div align="center">
           <a href="logout.html">
           <button type="button" class="btn btn-default">ログアウト</button>
           </a>
       </div>
-
-      
-      
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.</div>
       </div>
     </footer>
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -37,14 +40,14 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
               <a class="dropdown-item" href="category.html">ビール</a>
               <a class="dropdown-item" href="#">ウィスキー</a>
@@ -52,14 +55,14 @@
                 <a class="dropdown-item" href="#">ワイン</a>
                 <a class="dropdown-item" href="#">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-black" href="logout.html" target="_blank">
               <p>Log out</p>
             </a>
           </li>
-          
+
           <li class="nav-item">
               <form action="search.html" method="#">
             <input class="form-control" type="text" placeholder="キーワードで探す">
@@ -80,12 +83,12 @@
           <h3>This is a magical site that makes you want to drink</h3>
             <h5>〜酒が飲みたくなる魔法のサイト〜</h5>
         </div>
-        
+
       </div>
     </div>
     <div class="main">
       <div class="section section-images">
-        
+
       </div>
          <div class="container">
         <div class="title">
@@ -164,8 +167,8 @@
 </div>
              </a>
         </div>
-        
-        
+
+
       <div class="section" id="carousel">
         <div class="container">
           <div class="title">
@@ -214,23 +217,23 @@
             </a>
         </div>
       </div>
-      
-      
-      
-     
-     
+
+
+
+
+
     </div>
-    
+
 
     <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
- 
+
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>

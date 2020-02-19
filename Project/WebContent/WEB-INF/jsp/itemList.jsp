@@ -1,9 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -22,12 +25,12 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      
+
      <div class="alert alert-danger" role="alert">
   <h1>商品リスト一覧</h1>
-         
+
           </div>
-      
+
       <table class="table table-striped">
             <thead>
                 <tr>
@@ -85,27 +88,27 @@
                 </tr>
                 <tr>
             </tbody>
-            
+
         </table>
       <div align="center">
           <button type="button" class="btn btn-default">ログアウト</button></div>
 
-      
-      
+
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.</div>
       </div>
     </footer>
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

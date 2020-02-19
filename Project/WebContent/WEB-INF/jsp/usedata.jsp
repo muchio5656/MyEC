@@ -1,16 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      
+
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>購入確定画面s</title>
+    <title>ユーザーデータ</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
-    <!--     Fonts and iconss     -->
+    <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
@@ -22,10 +25,10 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg bg-primary">
+      <nav class="navbar navbar-expand-lg bg-primary " >
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="top.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="TopServlet" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
           Favoul
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,29 +39,29 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
-           
+
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
             </a>
-              
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="category.html">ビール</a>
-              <a class="dropdown-item" href="category.html">ウィスキー</a>
-                <a class="dropdown-item" href="category.html">日本酒・焼酎</a>
-                <a class="dropdown-item" href="category.html">ワイン</a>
-                <a class="dropdown-item" href="category.html">その他お酒</a>
+              <a class="dropdown-item" href="#">ビール</a>
+              <a class="dropdown-item" href="#">ウィスキー</a>
+                <a class="dropdown-item" href="#">日本酒・焼酎</a>
+                <a class="dropdown-item" href="#">ワイン</a>
+                <a class="dropdown-item" href="#">その他お酒</a>
             </div>
-              
+
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-black" href="logout.html" target="_blank">
+            <a class="nav-link btn btn-black" href="" target="_blank">
               <p>Log out</p>
             </a>
           </li>
-          <form action="search.html" method="">
+       <form action="search.html" method="post">
           <li class="nav-item">
             <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
@@ -66,68 +69,98 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav><br><br><br>
 
-      
-      
-      
-       <div class="container">
+      <div class="container">
        <div align="center" class="alert alert-primary" role="alert">
-  購入を確定してもよろしいですか？？
+  ユーザーデータ
             </div>
-           <form action="thankyou.html" method="">
- 
+
+      <form action="update.html" method="#">
+          <br><br>
+          <div class="row">
+  <div class="form-group col s6">
+    <label for="exampleInputEmail1">Eメールアドレス</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+          <div class="form-group col s6">
+    <label>名前</label>
+    <input type="text" class="form-control"  placeholder="名前">
+  </div>
+          </div><br>
+          <div class="row">
+  <div class="form-group col s12">
+    <label>住所</label>
+    <input type="text" class="form-control"  placeholder="住所">
+              </div></div><br><br>
+
+  <div align="center">
+      <button type="submit" class="btn btn-primary">更新</button></div>
+</form>
+      <br><br><br><br><br>
+       <div align="center" class="alert alert-primary" role="alert">
+  購入履歴
+            </div>
+      <div class="container">
+
+
     <div align="center"　class="col-5 ml-3">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>商品名</th>
-                    <th>単価</th>
-                    <th>小計</th>
+                    <th>   </th>
+                    <th>購入日時</th>
+                    <th>配送方法</th>
+                     <th>購入金額</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>角瓶</td>
-                    <th>1000円</th>
-                    <th>1000円</th>
+                    <td>
+                        <a href="ubhd.html">
+                        <button class="btn btn-defult btn-icon btn-round">
+                        <i class="now-ui-icons arrows-1_minimal-down"></i>
+                            </button></a></td>
+                    <th>2020/01/01</th>
+                    <th>通常配送</th>
+                     <th>1000円</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <th>特急配送</th>
-                    <th>500円</th>     </tr>
-                <tr>
-                    <td></td>
-                    <th>合計</th>
-                    <th>1500円</th>
+                    <td>
+                        <a href="ubhd.html">
+                        <button class="btn btn-defult btn-icon btn-round">
+
+                            <i class="now-ui-icons arrows-1_minimal-down"></i>
+                            </button>
+                        </a>
+                    </td>
+                    <th>2020/01/01</th>
+                    <th>通常配送</th>
+                     <th>1000円</th>
+
                 </tr>
-                <tr>
-                <td></td>
-                    <th>お届け日</th>
-                    <th>2020-02-02</th>
-                </tr>
-                <tr>
+
+
             </tbody>
-            </table>
-        <button class="btn btn-primary">購入確定</button>
-         </div>
-           </form>
-               </div>
-      
-      
-      
-      
+
+        </table>
+    </div>
+      </div>
+
+      </div>
+
+
       <footer class="footer" data-background-color="black">
       <div class=" container ">
-        
+
         <div >Made by Toshiki Munakata.
-          
+
         </div>
       </div>
     </footer>
-      
-      
-      
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
