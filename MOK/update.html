@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>ログアウトしました</title>
+    <title>ユーザーデータ更新</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
     <!--     Fonts and icons     -->
@@ -22,7 +22,7 @@
     <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="1">
+      <nav class="navbar navbar-expand-lg bg-primary " >
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="TopServlet" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
@@ -65,28 +65,48 @@
         </ul>
       </div>
     </div>
-  </nav><div class="section section-signup" style="background-image: url('assets/img/801.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
-        <div class="container">
-          <div class="row">
-            <div class="card card-signup" data-background-color="black">
-              <form class="form" method="" action="">
-                <div class="card-header text-center">
-                  <h1 class="card-title title-up">See you....</h1>
-                  
-                </div>
-                <div align="center">ログアウトしました</div>
-                <div class="card-footer text-center">
-                  <a href="#pablo" class="btn btn-round btn-lg">TOPページへ</a>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="col text-center">
-          </div>
-        </div>
-      </div>
+  </nav><br><br><br>
 
+      <div class="container">
+       <div align="center" class="alert alert-primary" role="alert">
+  入力内容確認
+            </div>
+      <form><br><br>
+          <div class="row">
+  <div class="form-group col s6">
+    <label >Eメールアドレス</label>
+    <input type="email" class="form-control" value="muchinanoka@icloud.com" readonly>
+  </div>
+          <div class="form-group col s6">
+    <label>名前</label>
+     <input type="text" class="form-control" value="棟方俊樹" readonly>
+  </div>
+          </div><br>
+           <div class="row">
+  <div class="form-group col s12">
+    <label >住所</label>
+    <input type="text" class="form-control" value="青森県弘前市鬼沢字猿沢218" readonly>
+
+              </div></div><br><br>
+          
+          <div align="center">上記内容で更新してよろしいでしょうか？？</div>
+
+
+
+  
+<div align="center" class="row">
+		<div class="input-field col s6">
       
+      <button type="button" class="btn btn-default">削除</button>
+<button type="button" class="btn btn-primary">更新</button>
+
+          </div>
+    </div></form>
+      <br><br><br><br><br>
+      
+      
+      
+      </div>
       
       
       
