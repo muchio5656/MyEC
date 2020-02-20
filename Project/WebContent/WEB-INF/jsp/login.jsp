@@ -13,8 +13,8 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
     <!-- CSS Files -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 
 
   </head>
@@ -22,7 +22,7 @@
       <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="1">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="top.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ" data-placement="bottom" target="_blank">
           Favoul
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,16 +51,14 @@
 
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-black" href="logout.html" target="_blank">
+            <a class="nav-link btn btn-black" href="Logout" target="_blank">
               <p>Log out</p>
             </a>
           </li>
-          <form action="search.html" method="post">
-         <form action="search.html" method="post">
+         <form action="Search" method="post">
           <li class="nav-item">
             <input class="form-control" type="text"  name="search" placeholder="キーワードで探す">
           </li>
-            </form>
             </form>
         </ul>
       </div>
@@ -73,7 +71,7 @@
             </div>
           <div class="row">
             <div class="card card-signup" data-background-color="black">
-              <form class="form" method="#" action="top.html">
+              <form class="form" method="post" action="Login">
                 <div class="card-header text-center">
                   <h3 class="card-title title-up">Login</h3>
 
@@ -94,12 +92,12 @@
                       <span class="input-group-text">
                       </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="パスワード">
+                    <input type="password" class="form-control" placeholder="パスワード">
                   </div>
 
                 </div>
                 <div class="card-footer text-center">
-                  <a href="#" class="btn  btn-round btn-lg">a</a>
+                  <button type="submit" class="btn  btn-round btn-lg">ログイン</button>
                 </div>
               </form>
             </div>
@@ -107,22 +105,12 @@
           <div class="col text-center">
             <a href="userInsert.html" class="btn  btn-round btn-white btn-lg" target="_blank">新規登録</a>
               <br><br><br><br><br><br><br><br><br><br>
-                          <a href="masterlogin.html" class="btn  btn-round btn-white btn-lg" target="_blank">管理者ページへ</a>
+                          <a href="Masterlogin" class="btn  btn-round btn-white btn-lg" target="_blank">管理者ページへ</a>
 
           </div>
 
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
 
       <footer class="footer" data-background-color="black">
       <div class=" container ">
@@ -136,15 +124,15 @@
 
 
     <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
 
     <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="../assets/js/plugins/bootstrap-switch.js"></script>
+    <script src="assets/js/plugins/bootstrap-switch.js"></script>
 
     <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
 
     <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
 
@@ -153,6 +141,6 @@
 
 
     <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
   </body>
 </html>
