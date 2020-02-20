@@ -30,7 +30,7 @@ public class UserInsert extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userInsert.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userinsert.jsp");
 		dispatcher.forward(request, response);
 	}
 

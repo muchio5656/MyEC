@@ -22,7 +22,7 @@
       <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="1">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ" data-placement="bottom">
           Favoul
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="category.html">ビール</a>
+              <a class="dropdown-item" href="Category">ビール</a>
               <a class="dropdown-item" href="category.html">ウィスキー</a>
                 <a class="dropdown-item" href="category.html">日本酒・焼酎</a>
                 <a class="dropdown-item" href="category.html">ワイン</a>
@@ -51,7 +51,7 @@
 
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-black" href="Logout" target="_blank">
+            <a class="nav-link btn btn-black" href="Logout">
               <p>Log out</p>
             </a>
           </li>
@@ -66,9 +66,10 @@
   </nav>
    <div class="section section-signup" style="background-image: url('assets/img/200.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
         <div class="container">
+        <c:if test="${errMsg != null}">
             <div align="center" class="alert alert-danger" role="alert">
-  入力内容が正しくありません
-            </div>
+            ${errMsg}</div>
+            </c:if>
           <div class="row">
             <div class="card card-signup" data-background-color="black">
               <form class="form" method="post" action="Login">
@@ -82,7 +83,7 @@
                       <span class="input-group-text">
                       </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="メールアドレス">
+                    <input type="text" name="mailAddress" class="form-control" placeholder="メールアドレス">
                   </div>
                   <div class="input-group no-border">
 
@@ -92,20 +93,20 @@
                       <span class="input-group-text">
                       </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="パスワード">
+                    <input type="password" name="password" class="form-control" placeholder="パスワード">
                   </div>
 
                 </div>
                 <div class="card-footer text-center">
-                  <button type="submit" class="btn  btn-round btn-lg">ログイン</button>
+                  <button type="submit"  class="btn  btn-round btn-lg">ログイン</button>
                 </div>
               </form>
             </div>
           </div>
           <div class="col text-center">
-            <a href="userInsert.html" class="btn  btn-round btn-white btn-lg" target="_blank">新規登録</a>
+            <a href="UserInsert" class="btn  btn-round btn-white btn-lg">新規登録</a>
               <br><br><br><br><br><br><br><br><br><br>
-                          <a href="Masterlogin" class="btn  btn-round btn-white btn-lg" target="_blank">管理者ページへ</a>
+                          <a href="MasterLogin" class="btn  btn-round btn-white btn-lg" >管理者ページへ</a>
 
           </div>
 

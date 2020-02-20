@@ -42,7 +42,6 @@
         <ul class="navbar-nav">
 
           <li class="nav-item dropdown">
-
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
               <p>カテゴリで探す</p>
@@ -58,7 +57,12 @@
 
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-black" href="logout.html" target="_blank">
+            <a class="nav-link btn btn-black" href="UserData">
+              <p>${userInfo.name}さん</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-black" href="logout.html">
               <p>Log out</p>
             </a>
           </li>

@@ -11,9 +11,16 @@ public class UserDataBeans implements Serializable{
 	private Date createDate;
 	private String password;
 	private int id;
+	private String mailAddress;
 
 	public UserDataBeans() {
 
+	}
+
+	public UserDataBeans(String loginData, String nameData) {
+		// TODO 自動生成されたコンストラクター・スタブ
+		this.mailAddress=loginData;
+		this.name = nameData;
 	}
 
 	public String getName() {
@@ -62,6 +69,14 @@ public class UserDataBeans implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getMailAddres() {
+		return mailAddress;
+	}
+
+	public void setMailAddres(String mailAddress) {
+		this.mailAddress = mailAddress;
 	}
 
 

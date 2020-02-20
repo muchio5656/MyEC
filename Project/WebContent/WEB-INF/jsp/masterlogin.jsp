@@ -13,8 +13,8 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
     <!-- CSS Files -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 
 
   </head>
@@ -24,7 +24,7 @@
         <div class="container">
           <div class="row">
             <div class="card card-signup" data-background-color="black">
-              <form class="form" method="#" action="masterlist.html">
+              <form class="form" method="post" action="MasterList">
                 <div class="card-header text-center">
                   <h3 class="card-title title-up">管理者ページへ</h3>
 
@@ -50,7 +50,7 @@
 
                 </div>
                 <div class="card-footer text-center">
-                  <btn class="btn  btn-round btn-lg">aGo</btn>
+                  <btn class="btn  btn-round btn-lg">Go</btn>
                 </div>
               </form>
             </div>
