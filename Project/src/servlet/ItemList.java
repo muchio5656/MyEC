@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.ItemDataBeans;
+import dao.ItemDAO;
+
 /**
  * Servlet implementation class ItemList
  */
@@ -16,30 +20,29 @@ import javax.servlet.http.HttpServletResponse;
 public class ItemList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ItemList() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ItemList() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
+		//アイテム一覧を取得
+		ItemDAO itemDao = new ItemDAO();
+		List<ItemDataBeans> itemData = itemDao.findAllItem();
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/iteminsert.jsp");
+		// リクエストスコープにユーザ一覧情報をセット
+		request.setAttribute("itemData", itemData);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/itemlist.jsp");
 		dispatcher.forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

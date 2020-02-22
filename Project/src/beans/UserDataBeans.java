@@ -1,6 +1,8 @@
 package beans;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserDataBeans implements Serializable{
@@ -8,7 +10,7 @@ public class UserDataBeans implements Serializable{
 	private String name;
 	private String address;
 	private Date birthDate;
-	private Date createDate;
+	private String createDate;
 	private String password;
 	private int id;
 	private String mailAddress;
@@ -21,6 +23,34 @@ public class UserDataBeans implements Serializable{
 		// TODO 自動生成されたコンストラクター・スタブ
 		this.mailAddress=loginData;
 		this.name = nameData;
+	}
+
+	public UserDataBeans(String mailAddress2, String name2, String address2, Date birthDate2, String password2) {
+		this.mailAddress= mailAddress2;
+		this.name=name2;
+		this.address= address2;
+		this.birthDate=birthDate2;
+		this.password=password2;
+	}
+
+	public UserDataBeans(String mailAddress2, String name2, String address2, String birthDate2, String password2) {
+		this.mailAddress= mailAddress2;
+		this.name=name2;
+		this.address= address2;
+		setBirthDate(birthDate2);
+		this.password=password2;
+	}
+
+
+	public UserDataBeans(int id2, String name2, String address2, String password2, java.sql.Date birthDate2,
+			String createDate2, String mailAddress2) {
+		this.id=id2;
+		this.name=name2;
+		this.address= address2;
+		this.password=password2;
+		this.birthDate=birthDate2;
+		this.createDate=createDate2;
+		this.mailAddress= mailAddress2;
 	}
 
 	public String getName() {
@@ -43,17 +73,28 @@ public class UserDataBeans implements Serializable{
 		return birthDate;
 	}
 
+
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
+	public void setBirthDate(String birthDate) {
+		 SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+	     try {
+			this.birthDate  = sdFormat.parse(birthDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	     }
+
+	public String getBirthDate(String birthDate) {
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(birthDate);
+
 	}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
+
 
 	public String getPassword() {
 		return password;
@@ -71,13 +112,23 @@ public class UserDataBeans implements Serializable{
 		this.id = id;
 	}
 
-	public String getMailAddres() {
+	public String getMailAddress() {
 		return mailAddress;
 	}
 
-	public void setMailAddres(String mailAddress) {
+	public void setMailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
 	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+
 
 
 

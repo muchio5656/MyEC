@@ -29,7 +29,7 @@
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="top.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="Top" rel="tooltip"  data-placement="bottom" >
           Favoul
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="category.html">ビール</a>
+              <a class="dropdown-item" href="Category">ビール</a>
               <a class="dropdown-item" href="#">ウィスキー</a>
                 <a class="dropdown-item" href="#">日本酒・焼酎</a>
                 <a class="dropdown-item" href="#">ワイン</a>
@@ -62,13 +62,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-black" href="logout.html">
+            <a class="nav-link btn btn-black" href="Logout">
               <p>Log out</p>
             </a>
           </li>
 
           <li class="nav-item">
-              <form action="search.html" method="#">
+              <form action="Search" method="#">
             <input class="form-control" type="text" placeholder="キーワードで探す">
               </form>
           </li>
@@ -100,43 +100,43 @@
   売り上げランキング
             </div></div><br><br>
       <div class="card" style="width: 20rem;margin: 22px">
-          <a href="itemDitaile.html">
+          <a href="ItemDitail">
   <img class="card-img-top" src="assets/img/1000.jpg" alt="Top1">
           </a>
   <div class="card-body">
                 <h3>1位</h3>
-       <a href="itemDitaile.html">
+       <a href="ItemDitail">
     <h4 class="card-title">アイテム名</h4>
       </a>
     <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
       <div align="right"><p>○○○円</p>
-      <a href="car.html" class="btn btn-primary">カートに入れる</a></div>
+      <a href="Car" class="btn btn-primary">カートに入れる</a></div>
   </div>
 </div><div class="card" style="width: 20rem;margin: 22px">
-              <a href="itemDitaile.html">
+              <a href="ItemDetail">
   <img class="card-img-top" src="assets/img/1001.jpg" alt="Top2">
              </a>
   <div class="card-body">
           <h3>2位</h3>
-       <a href="itemDitaile.html">
+       <a href="Itemdetail">
     <h4 class="card-title">アイテム名</h4>
       </a>
     <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
        <div align="right"><p>○○○円</p>
-      <a href="car.html" class="btn btn-primary">カートに入れる</a></div>
+      <a href="Car" class="btn btn-primary">カートに入れる</a></div>
   </div>
 </div><div class="card" style="width: 20rem;margin: 22px">
-              <a href="itemDitaile.html">
+              <a href="ItemDetail">
   <img class="card-img-top" src="assets/img/1002.jpg" alt="Top3">
              </a>
   <div class="card-body">
                 <h3>3位</h3>
-       <a href="itemDitaile.html">
+       <a href="ItemDetail">
     <h4 class="card-title">アイテム名</h4>
       </a>
     <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
        <div align="right"><p>○○○円</p>
-      <a href="car.html" class="btn btn-primary">カートに入れる</a></div>
+      <a href="Car" class="btn btn-primary">カートに入れる</a></div>
   </div>
 </div>
         </div>
@@ -145,7 +145,7 @@
             <div class="alert alert-primary" role="alert">
   今日のおつまみ
             </div><br><br>
-            <a href="food.html">
+            <a href="Food">
     <div class="card mb-4">
   <img class="card-img-top" src="assets/img/600.jpg" alt="Card image cap">
   <div class="card-body">
@@ -159,7 +159,7 @@
             <div class="alert alert-primary" role="alert">
   今日のウンチク
             </div><br><br>
-             <a href="category.html">
+             <a href="Category">
         <div class="card bg-dark text-white">
   <img class="card-img" src="assets/img/1004.jpg" alt="Card image">
   <div class="card-img-overlay">
@@ -180,7 +180,7 @@
   美しい酒器
 </div><br><br>
           </div>
-            <a href="itemDitaile.html">
+            <a href="ItemDitaile">
           <div class="row justify-content-center">
             <div class="col-lg-8 col-md-12">
               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -266,6 +266,6 @@
         }, 1000);
       }
     }
-  </script</body>
+  </script></body>
 
 </html>

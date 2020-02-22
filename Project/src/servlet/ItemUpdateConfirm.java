@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ItemDAO;
+
 /**
  * Servlet implementation class ItemUpdateConfirm
  */
@@ -38,8 +40,23 @@ public class ItemUpdateConfirm extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+
+		//文字化け防止処理
+				request.setCharacterEncoding("UTF-8");
+		// リクエストパラメータの入力項目を取得
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String price = request.getParameter("price");
+		String fileName = request.getParameter("fileName");
+		String detail = request.getParameter("detail");
+
+		ItemDAO item =new ItemDAO();
+
+		item.itemUpdate(name,price,fileName,detail,id);
+
+		response.sendRedirect("ItemList");
+
 	}
 
 }

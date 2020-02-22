@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDAO;
+
 /**
  * Servlet implementation class InsertConfirm
  */
@@ -38,8 +40,26 @@ public class InsertConfirm extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+
+		request.setCharacterEncoding("UTF-8");
+
+		// リクエストパラメータの入力項目を取得
+				String mailAddress = request.getParameter("mailAddress");
+				String name = request.getParameter("name");
+				String address = request.getParameter("address");
+				String birthDate = request.getParameter("birthDate");
+				String password = request.getParameter("password");
+
+				UserDAO user =new UserDAO();
+
+
+				// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
+
+				user.userInsert(mailAddress, password, name, birthDate,address);
+
+
+				response.sendRedirect("InsertDone");
 	}
 
 }

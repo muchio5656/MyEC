@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import beans.UserDataBeans;
+import dao.UserDAO;
 
 /**
  * Servlet implementation class MasterLogin
@@ -16,30 +20,71 @@ import javax.servlet.http.HttpServletResponse;
 public class MasterLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MasterLogin() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MasterLogin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/masterlogin.jsp");
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		//文字化け防止処理
+		request.setCharacterEncoding("UTF-8");
+
+		//リクエストパラメータの入力項目を取得
+		String mailAddress = request.getParameter("mailAddress");
+		String password = request.getParameter("password");
+
+		UserDAO user =new UserDAO();
+
+		UserDataBeans master = user.masterKey(mailAddress, password);
+
+		if (master == null) {
+			// リクエストスコープにエラーメッセージをセット
+			request.setAttribute("errMsg", "管理者以外の方はこちらからログインしてください");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+		HttpSession session = request.getSession();
+		session.setAttribute("master", master);
+
+		//マスターリストページへフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/masterlist.jsp");
+		dispatcher.forward(request, response);
+
+
+
+
+//		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
+//		boolean masterKey = user.masterLogin(mailAddress, password);
+//
+//		if (!(masterKey)) {
+//			request.setAttribute("errMsg", "入力された値は正しくありません");
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+//			dispatcher.forward(request, response);
+//			return;
+//		}
+//
+//		//データベースに該当データが見つかった場合(ログイン成功時)
+//		// セッションにユーザの情報をセット
+//		HttpSession session = request.getSession();
+//		session.setAttribute("userInfo", user);
+//		//Topページへリダイレクト
+//		response.sendRedirect("Top");
 	}
 
 }

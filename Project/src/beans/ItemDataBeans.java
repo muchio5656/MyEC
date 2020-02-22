@@ -2,7 +2,6 @@ package beans;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ItemDataBeans implements Serializable {
 
@@ -12,10 +11,40 @@ public class ItemDataBeans implements Serializable {
 	private int price;
 	private String fileName;
 	private int itemCategoryId;
-	private Date createDate;
+	private String createDate;
+	private int itemSales;
+	private String itemCategoryName;
 
 	public ItemDataBeans() {
 
+	}
+
+	//Itemの全データを取得するコンストラクタ
+	public ItemDataBeans(int id2, String name2, int price2, String detail2,String fileName2, String createDate2, String itemCategoryName2) {
+		this.id=id2;
+		this.name=name2;
+		this.price=price2;
+		this.detail=detail2;
+		this.fileName= fileName2;
+		this.createDate= createDate2;
+		this.itemCategoryName=itemCategoryName2;
+	}
+
+	public ItemDataBeans(int id2,String name2, int price2, String fileName2, String detail2) {
+		this.id=id2;
+		this.name=name2;
+		this.price=price2;
+		this.detail=detail2;
+		this.fileName= fileName2;
+	}
+
+	public ItemDataBeans(String name2, int price2, String fileName2, String detail2, int itemCategoryId2) {
+
+		this.name=name2;
+		this.price=price2;
+		this.detail=detail2;
+		this.fileName= fileName2;
+		this.itemCategoryId=itemCategoryId2;
 	}
 
 	public int getId() {
@@ -66,17 +95,34 @@ public class ItemDataBeans implements Serializable {
 		this.itemCategoryId = itemCategoryId;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
 
 	public String getFormatCreateDate() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日HH時mm分");
 		return sdf.format(createDate);
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public int getItemSales() {
+		return itemSales;
+	}
+
+	public void setItemSales(int itemSales) {
+		this.itemSales = itemSales;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public String getItemCategoryName() {
+		return itemCategoryName;
+	}
+
+	public void setItemCategoryName(String itemCategoryName) {
+		this.itemCategoryName = itemCategoryName;
 	}
 
 }
