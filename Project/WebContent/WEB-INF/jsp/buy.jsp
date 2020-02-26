@@ -17,8 +17,7 @@
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg bg-primary ">
+	<nav class="navbar navbar-expand-lg bg-primary ">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ"
@@ -42,27 +41,34 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category">ビール</a> <a
-								class="dropdown-item" href="category.html">ウィスキー</a> <a
-								class="dropdown-item" href="category.html">日本酒・焼酎</a> <a
-								class="dropdown-item" href="category.html">ワイン</a> <a
-								class="dropdown-item" href="category.html">その他お酒</a>
+							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
+								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
+								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
+								class="dropdown-item" href="Category?id=4">ワイン</a> <a
+								class="dropdown-item" href="Category?id=5">その他お酒</a>
 						</div></li>
-						<c:if test="${userInfo.name!= null}">
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
-							<p>${userInfo.name}さん</p>
-					</a></li></c:if>
+					<c:if test="${userInfo==null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Login">
+								<p>Login</p>
+						</a></li>
+					</c:if>
+					<c:if test="${userInfo!= null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="UserData">
+								<p>${userInfo.name}さん</p>
+						</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Logout">
+								<p>Log out</p>
+						</a></li>
+					</c:if>
 
-
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="Logout">
-							<p>Log out</p>
-					</a></li>
-					<form action="Search" method="post">
-						<li class="nav-item"><input class="form-control" type="text"
-							name="search" placeholder="キーワードで探す"></li>
-					</form>
+					<li class="nav-item">
+						<form action="Search">
+							<input class="form-control" type="text" placeholder="キーワードで探す"
+								name="search_word">
+						</form>
 				</ul>
 			</div>
 		</div>
@@ -71,89 +77,77 @@
 
 
 
-       <div class="container">
-      <div align="center" class="alert alert-primary" role="alert">配送方法を決めてください
-           </div>
-           <form action="buyconfirm.html" method="#">
+	<div class="container">
+		<div align="center" class="alert alert-primary" role="alert">配送方法を決めてください
+		</div>
+		<form action="BuyConfirm" method="post">
 
-    <div align="center"　class="col-5 ml-3">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>商品名</th>
-                    <th>単価</th>
-                    <th>小計</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th></th>
-                    <td>角瓶</td>
-                    <th>1000円</th>
-                    <th>1000円</th>
-                </tr>
-                <tr>
-                    <th></th>
-                    <td>ジムビーム</td>
-                    <th>1000円</th>
-                    <th>1000円</th>
+			<div align="center" >
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th>商品名</th>
+							<th>単価</th>
+							<th>小計</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="cartInItem" items="${cart}">
+							<tr>
+								<th></th>
+								<td>${cartInItem.name}</td>
+								<th>${cartInItem.price}円</th>
+								<th>${cartInItem.price}円</th>
+							</tr>
+						</c:forEach>
+						<tr>
+							<td></td>
+							<th></th>
+							<th>配送方法</th>
+							<th><div class="input-field col s8 offset-s2 ">
+									<select name="delivery_method_id">
+										<c:forEach var="dmdb" items="${dmdbList}">
+											<option value="${dmdb.id}">${dmdb.name}</option>
+										</c:forEach>
+									</select>
+								</div></th>
+						</tr>
+						<!-- <tr>
+							<th></th>
+							<td></td>
+							<th>指定お届け日</th>
+							<th><input type="date" class="form-control"
+								name="deliveryDate"></th>
+						</tr> -->
+					</tbody>
+				</table>
+				<button class="btn btn-primary">確認画面へ</button>
+			</div>
+		</form>
+	</div>
 
-                </tr>
-                <tr>
-                    <th></th>
-                    <td>メーカーズ</td>
-                    <th>1000円</th>
-                    <th>1000円</th>
-
-                </tr>
-                <tr>
-                <td></td>
-                    <th></th>
-                    <th><!-- Example split danger button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-defult">配送方法</button>
-  <button type="button" class="btn btn-defult dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">通常配送</a>
-    <a class="dropdown-item" href="#">特急配送</a>
-    <a class="dropdown-item" href="#">日付指定配送</a>
-  </div>
-</div></th>
-                    <th>000円</th>
-                </tr>
-              <tr>
-                    <th></th>
-                    <td></td>
-                    <th>指定お届け日</th>
-                    <th><input type="date" class="form-control"></th>
-                </tr>
-            </tbody>
-        </table>
-        <button class="btn btn-primary">確認画面へ</button>
-               </div></form>
-      </div>
-
-      <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
-</html></html>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+	<!--   Core JS Files   -->
+	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+	<script src="assets/js/plugins/bootstrap-switch.js"></script>
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="assets/js/plugins/nouislider.min.js"
+		type="text/javascript"></script>
+	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+	<script src="../assets/js/plugins/bootstrap-datepicker.js"
+		type="text/javascript"></script>
+	<!--  Google Maps Plugin    -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+	<script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+</body>
+</html>
+</html>

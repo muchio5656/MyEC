@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Part;
+
 import beans.ItemDataBeans;
 import database.DBManager;
 
@@ -199,4 +201,128 @@ public class ItemDAO {
 	}{
 
 	}
+
+	public List<ItemDataBeans> findCategory(String id2) {
+		Connection conn = null;
+		List<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
+		try {
+			// データベースへ接続
+			conn = DBManager.getConnection();
+			String sql = "SELECT i.id,i.name,i.detail,i.price,i.file_name," +
+					"i.item_category_id,i.create_date,c.category " +
+					"FROM item i INNER JOIN item_category c " +
+					"ON i.item_category_id = c.id WHERE c.id = ?";
+
+			//SELECTを実行し、アイテム全データ取得
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, id2);
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表に格納されたレコードの内容を
+			// Userインスタンスに設定し、ArrayListインスタンスに追加
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				String detail = rs.getString("detail");
+				int price = rs.getInt("price");
+				String fileName = rs.getString("file_name");
+				String createDate = rs.getString("create_date");
+				//				int itemSales = rs.getInt("");
+				String itemCategoryName = rs.getString("category");
+				ItemDataBeans item = new ItemDataBeans(id, name, price, detail, fileName, createDate, itemCategoryName);
+
+				itemList.add(item);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+		return itemList;
+	}
+
+	public ItemDataBeans intoCar(String id) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+
+
+	public static List<ItemDataBeans> wordSearch(String searchWord) {
+		// キーワード検索
+		Connection conn = null;
+		List<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
+		try {
+			// データベースへ接続
+			conn = DBManager.getConnection();
+			String sql = "SELECT i.id,i.name,i.detail,i.price,i.file_name," +
+					"i.item_category_id,i.create_date,c.category " +
+					"FROM item i INNER JOIN item_category c " +
+					"ON i.item_category_id = c.id WHERE i.name LIKE ? ORDER BY id ASC";
+
+			//SELECTを実行し、アイテム全データ取得
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, "%"+searchWord+"%");
+			ResultSet rs = pStmt.executeQuery();
+
+
+			if (!rs.next()) {
+				return null;
+			}
+
+			// 結果表に格納されたレコードの内容を
+			// Userインスタンスに設定し、ArrayListインスタンスに追加
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				String detail = rs.getString("detail");
+				int price = rs.getInt("price");
+				String fileName = rs.getString("file_name");
+				String createDate = rs.getString("create_date");
+				//				int itemSales = rs.getInt("");
+				String itemCategoryName = rs.getString("category");
+				ItemDataBeans item = new ItemDataBeans(id, name, price, detail, fileName, createDate, itemCategoryName);
+
+				itemList.add(item);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+		return itemList;
+	}
+
+	public String getFileName(Part part) {
+		String name = null;
+		for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+			if (dispotion.trim().startsWith("filename")) {
+				name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+				name = name.substring(name.lastIndexOf("\\") + 1);
+				break;
+			}
+		}
+		return name;
+	}
+
 }

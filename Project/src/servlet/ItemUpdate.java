@@ -4,10 +4,12 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import beans.ItemDataBeans;
 import dao.ItemDAO;
@@ -16,6 +18,7 @@ import dao.ItemDAO;
  * Servlet implementation class ItemUpdate
  */
 @WebServlet("/ItemUpdate")
+@MultipartConfig(location = "/Users/Toshiki/Documents/Git/MyEC/Project/WebContent/assets/img", maxFileSize = 1048576)
 public class ItemUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -57,38 +60,28 @@ public class ItemUpdate extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// リクエストパラメータの入力項目を取得
-		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String price = request.getParameter("price");
-		String fileName = request.getParameter("fileName");
+		Part fileName = request.getPart("fileName");
 		String detail = request.getParameter("detail");
 		String itemCategoryId = request.getParameter("itemCategoryId");
 
+		ItemDAO item = new ItemDAO();
 
-
+		String fName = item.getFileName(fileName);
+		fileName.write(fName);
 
 		//値が間違ってる場合エラーメッセージをセットしてupdateページへフォワード
-				if (name.equals("") || price.equals("") || fileName.equals("") || detail.equals("")) {
-					request.setAttribute("errMsg", "更新失敗　未入力の項目があります");
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/itemupdate.jsp");
-					dispatcher.forward(request, response);
-					return;
-				}
+		if (name.equals("") || price.equals("") || fileName.equals("") || detail.equals("")) {
+			request.setAttribute("errMsg", "更新失敗　未入力の項目があります");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/itemupdate.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
 
+		item.itemUpdate(name, price, fName, detail, itemCategoryId);
 
-		//コンストラクタに合わせて型の変換
-		int id2 = Integer.parseInt(id);
-		int price2 = Integer.parseInt(price);
-
-		String dummy = "";
-
-		ItemDataBeans Item = new ItemDataBeans(id2, name, price2, detail, fileName,itemCategoryId,dummy);
-
-		request.setAttribute("item", Item);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/itemupdateconfirm.jsp");
-		dispatcher.forward(request, response);
-
+		response.sendRedirect("Masterlist");
 
 	}
 

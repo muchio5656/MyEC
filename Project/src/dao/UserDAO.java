@@ -33,9 +33,12 @@ public class UserDAO {
 				return null;
 			}
 
+
+			int loginId = rs.getInt("id");
 			String loginMailAddress = rs.getString("mail_address");
 			String loginName = rs.getString("name");
-			return new UserDataBeans(loginMailAddress, loginName);
+
+			return new UserDataBeans(loginId,loginMailAddress, loginName);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -152,8 +155,8 @@ public class UserDAO {
 					return null;
 				}
 			}
+		}
 	}
-}
 
 	public List<UserDataBeans> findAllUser() {
 		Connection conn = null;
@@ -177,7 +180,7 @@ public class UserDAO {
 				Date birthDate = rs.getDate("birth_date");
 				String createDate = rs.getString("create_date");
 				String mailAddress = rs.getString("mail_address");
-				UserDataBeans user = new UserDataBeans(id,name, address, password,birthDate, createDate, mailAddress);
+				UserDataBeans user = new UserDataBeans(id, name, address, password, birthDate, createDate, mailAddress);
 
 				userList.add(user);
 
@@ -197,7 +200,7 @@ public class UserDAO {
 			}
 		}
 		return userList;
-}
+	}
 
 	public UserDataBeans userDetail(String id) {
 
@@ -206,7 +209,6 @@ public class UserDAO {
 		try {
 			//DBに接続
 			conn = DBManager.getConnection();
-
 
 			String sql = "SELECT * FROM user WHERE id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -223,7 +225,7 @@ public class UserDAO {
 			Date birthDate = rs.getDate("birth_date");
 			String createDate = rs.getString("create_date");
 			String mailAddress = rs.getString("mail_address");
-			return new UserDataBeans(id2,name, address, password,birthDate, createDate, mailAddress);
+			return new UserDataBeans(id2, name, address, password, birthDate, createDate, mailAddress);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -265,10 +267,36 @@ public class UserDAO {
 					e.printStackTrace();
 				}
 			}
-	}}
+		}
+	}
+
+	public int getUserId(String mailAddress, String password) throws SQLException {
+		Connection con = null;
+		PreparedStatement st = null;
+		try {
+			con = DBManager.getConnection();
+
+			st = con.prepareStatement("SELECT * FROM user WHERE mail_address = ?");
+			st.setString(1, mailAddress);
+
+			ResultSet rs = st.executeQuery();
+
+			int userId = 0;
+
+			userId = rs.getInt("id");
+
+			return userId;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (con != null) {
+				con.close();
+			}
+		}
+	}
 
 }
-
 
 //	public boolean masterLogin(String mailAddress, String password) {
 //		Connection conn = null;

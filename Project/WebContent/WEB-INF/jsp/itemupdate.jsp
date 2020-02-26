@@ -28,7 +28,7 @@
 			${errMsg}</div>
 	</c:if>
       <div class="container">
-      <form action="ItemUpdate" method="post"><br><br>
+      <form action="ItemUpdate" method="post" enctype="multipart/form-data"><br><br>
           <div class="row">
   <div class="form-group col s4">
     <label>アイテムID</label>

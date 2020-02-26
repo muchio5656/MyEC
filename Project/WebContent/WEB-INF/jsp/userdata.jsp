@@ -42,27 +42,34 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category">ビール</a> <a
-								class="dropdown-item" href="category.html">ウィスキー</a> <a
-								class="dropdown-item" href="category.html">日本酒・焼酎</a> <a
-								class="dropdown-item" href="category.html">ワイン</a> <a
-								class="dropdown-item" href="category.html">その他お酒</a>
+							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
+								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
+								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
+								class="dropdown-item" href="Category?id=4">ワイン</a> <a
+								class="dropdown-item" href="Category?id=5">その他お酒</a>
 						</div></li>
-						<c:if test="${userInfo.name!= null}">
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
-							<p>${userInfo.name}さん</p>
-					</a></li></c:if>
+					<c:if test="${userInfo==null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Login">
+								<p>Login</p>
+						</a></li>
+					</c:if>
+					<c:if test="${userInfo!= null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="UserData">
+								<p>${userInfo.name}さん</p>
+						</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Logout">
+								<p>Log out</p>
+						</a></li>
+					</c:if>
 
-
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="Logout">
-							<p>Log out</p>
-					</a></li>
-					<form action="Search" method="post">
-						<li class="nav-item"><input class="form-control" type="text"
-							name="search" placeholder="キーワードで探す"></li>
-					</form>
+					<li class="nav-item">
+						<form action="Search">
+							<input class="form-control" type="text" placeholder="キーワードで探す"
+								name="search_word">
+						</form>
 				</ul>
 			</div>
 		</div>
@@ -73,35 +80,33 @@
   ユーザーデータ
             </div>
 
-      <form action="update.html" method="#">
+      <form action="UserUpdate" method="post">
           <br><br>
           <div class="row">
   <div class="form-group col s6">
     <label for="exampleInputEmail1">Eメールアドレス</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" id="exampleInputEmail1" name="mailAddress" value="${user.mailAddress}">
   </div>
           <div class="form-group col s6">
     <label>名前</label>
-    <input type="text" class="form-control"  placeholder="名前">
+    <input type="text" class="form-control" name="name" value="${user.name}">
   </div>
           </div><br>
           <div class="row">
   <div class="form-group col s12">
     <label>住所</label>
-    <input type="text" class="form-control"  placeholder="住所">
+    <input type="text" class="form-control" name="address" value="${user.address}">
               </div></div><br><br>
 
   <div align="center">
       <button type="submit" class="btn btn-primary">更新</button></div>
 </form>
       <br><br><br><br><br>
-       <div align="center" class="alert alert-primary" role="alert">
+       <div align="center" class="alert alert-primary">
   購入履歴
             </div>
       <div class="container">
-
-
-    <div align="center"　class="col-5 ml-3">
+    <div align="center">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -112,40 +117,23 @@
                 </tr>
             </thead>
             <tbody>
+            <c:forEach var="user" items="${userHistory}">
                 <tr>
                     <td>
-                        <a href="ubhd.html">
+                        <a href="UserBuyHistoryData?buy_id=${user.id}">
                         <button class="btn btn-defult btn-icon btn-round">
                         <i class="now-ui-icons arrows-1_minimal-down"></i>
                             </button></a></td>
-                    <th>2020/01/01</th>
-                    <th>通常配送</th>
-                     <th>1000円</th>
+                    <th>${user.formatCreateDate}</th>
+                    <th>${user.name}</th>
+                     <th>${user.formatTotalPrice}円</th>
                 </tr>
-                <tr>
-                    <td>
-                        <a href="ubhd.html">
-                        <button class="btn btn-defult btn-icon btn-round">
-
-                            <i class="now-ui-icons arrows-1_minimal-down"></i>
-                            </button>
-                        </a>
-                    </td>
-                    <th>2020/01/01</th>
-                    <th>通常配送</th>
-                     <th>1000円</th>
-
-                </tr>
-
-
-            </tbody>
-
+                </c:forEach>
+          </tbody>
         </table>
     </div>
       </div>
-
       </div>
-
  <footer class="footer" data-background-color="black">
       <div class=" container ">
       <div >Made by Toshiki Munakata.

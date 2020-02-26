@@ -5,7 +5,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<title>ログインページ</title>
+<title>購入確認</title>
 <!--     Fonts and icons     -->
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
@@ -42,27 +42,34 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category">ビール</a> <a
-								class="dropdown-item" href="category.html">ウィスキー</a> <a
-								class="dropdown-item" href="category.html">日本酒・焼酎</a> <a
-								class="dropdown-item" href="category.html">ワイン</a> <a
-								class="dropdown-item" href="category.html">その他お酒</a>
+							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
+								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
+								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
+								class="dropdown-item" href="Category?id=4">ワイン</a> <a
+								class="dropdown-item" href="Category?id=5">その他お酒</a>
 						</div></li>
-						<c:if test="${userInfo.name!= null}">
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
-							<p>${userInfo.name}さん</p>
-					</a></li></c:if>
+					<c:if test="${userInfo==null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Login">
+								<p>Login</p>
+						</a></li>
+					</c:if>
+					<c:if test="${userInfo!= null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="UserData">
+								<p>${userInfo.name}さん</p>
+						</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Logout">
+								<p>Log out</p>
+						</a></li>
+					</c:if>
 
-
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="Logout">
-							<p>Log out</p>
-					</a></li>
-					<form action="Search" method="post">
-						<li class="nav-item"><input class="form-control" type="text"
-							name="search" placeholder="キーワードで探す"></li>
-					</form>
+					<li class="nav-item">
+						<form action="Search">
+							<input class="form-control" type="text" placeholder="キーワードで探す"
+								name="search_word">
+						</form>
 				</ul>
 			</div>
 		</div>
@@ -75,9 +82,7 @@
        <div align="center" class="alert alert-primary" role="alert">
   購入を確定してもよろしいですか？？
             </div>
-           <form action="thankyou.html" method="">
-
-    <div align="center"　class="col-5 ml-3">
+    <div align="center">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -87,32 +92,34 @@
                 </tr>
             </thead>
             <tbody>
+            <c:forEach var="cartInItem" items="${cart}" >
                 <tr>
-                    <td>角瓶</td>
-                    <th>1000円</th>
-                    <th>1000円</th>
+                    <td>${cartInItem.name}</td>
+                    <th>${cartInItem.price}円</th>
+                    <th>${cartInItem.price}円</th>
                 </tr>
+                </c:forEach>
                 <tr>
-                    <td></td>
-                    <th>特急配送</th>
-                    <th>500円</th>     </tr>
+                    <td>${bdb.deliveryMethodName}</td>
+                    <th></th>
+                    <th>${bdb.deliveryMethodPrice}円</th>
+                </tr>
                 <tr>
                     <td></td>
                     <th>合計</th>
-                    <th>1500円</th>
+                    <th>${bdb.formatTotalPrice}円</th>
                 </tr>
-                <tr>
+              <!--   <tr>
                 <td></td>
                     <th>お届け日</th>
                     <th>2020-02-02</th>
-                </tr>
-                <tr>
+                </tr> -->
             </tbody>
             </table>
+             <form action="ThankYou" method="post">
         <button class="btn btn-primary">購入確定</button>
-         </div>
            </form>
-               </div>
+               </div></div>
 
 
 

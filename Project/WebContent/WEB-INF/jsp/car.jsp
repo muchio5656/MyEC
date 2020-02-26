@@ -5,7 +5,8 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<title>ログインページ</title>
+<title>カート詳細
+</title>
 <!--     Fonts and icons     -->
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
@@ -42,27 +43,34 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category">ビール</a> <a
-								class="dropdown-item" href="category.html">ウィスキー</a> <a
-								class="dropdown-item" href="category.html">日本酒・焼酎</a> <a
-								class="dropdown-item" href="category.html">ワイン</a> <a
-								class="dropdown-item" href="category.html">その他お酒</a>
+							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
+								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
+								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
+								class="dropdown-item" href="Category?id=4">ワイン</a> <a
+								class="dropdown-item" href="Category?id=5">その他お酒</a>
 						</div></li>
-						<c:if test="${userInfo.name!= null}">
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
-							<p>${userInfo.name}さん</p>
-					</a></li></c:if>
+					<c:if test="${userInfo==null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Login">
+								<p>Login</p>
+						</a></li>
+					</c:if>
+					<c:if test="${userInfo!= null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="UserData">
+								<p>${userInfo.name}さん</p>
+						</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Logout">
+								<p>Log out</p>
+						</a></li>
+					</c:if>
 
-
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="Logout">
-							<p>Log out</p>
-					</a></li>
-					<form action="Search" method="post">
-						<li class="nav-item"><input class="form-control" type="text"
-							name="search" placeholder="キーワードで探す"></li>
-					</form>
+					<li class="nav-item">
+						<form action="Search">
+							<input class="form-control" type="text" placeholder="キーワードで探す"
+								name="search_word">
+						</form>
 				</ul>
 			</div>
 		</div>
@@ -73,43 +81,26 @@
 
             </div>
      <br><br> <br><br>
-    <form action="car.html" method="#">
+    <form action="Car" method="post">
+    	<c:forEach var="item" items="${cart}" varStatus="status">
       <div class="card" style="width: 20rem; margin: 22px">
-           <a href="itemDitaile.html">
-  <img class="card-img-top" src="assets/img/1000.jpg" alt="Top1">
+           <a href="ItemDetail?id=${item.id}">
+  <img class="card-img-top" src="assets/img/${item.fileName}" >
           </a>
   <div class="card-body">
-       <a href="itemDitaile.html">
-    <h4 class="card-title">アイテム名</h4>
+       <a href="ItemDetail?id=${item.id}">
+    <h4 class="card-title">${item.name}</h4>
       </a>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-      <p>○○○円</p>
-      <p><input type="checkbox"></p>
+    <p class="card-text">${item.detail}</p>
+      <p>${item.price}円</p>
+      <p><input type="checkbox" id="${status.index}" name="delete_item_id_list" value="${item.id}" /></p>
   </div>
 </div>
-          <div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1001.jpg" alt="Top2">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-      <p><input type="checkbox"></p>
-  </div>
-</div>
-          <div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1002.jpg" alt="Top3">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-      <p><input type="checkbox"></p>
-  </div>
-        </div>
+</c:forEach>
         <div align="center" class="row">
 		<div class="input-field col s6">
-
             <button type="submit" class="btn btn-default">削除</button>
-            <a href="buy.html">
+            <a href="Buy?id=${item.id}">
             <button type="button" class="btn btn-primary">レジに進む</button>
           </a>
 

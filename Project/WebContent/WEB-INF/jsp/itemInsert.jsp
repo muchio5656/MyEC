@@ -28,7 +28,7 @@
 			${errMsg}</div>
 	</c:if>
 	<div class="container">
-		<form action="ItemInsert" method="post">
+		<form action="ItemInsert" method="post" enctype="multipart/form-data">
 			<br> <br>
 			<div class="row">
 				<div class="form-group col s6">

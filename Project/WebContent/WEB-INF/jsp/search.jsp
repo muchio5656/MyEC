@@ -5,7 +5,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<title>ログインページ</title>
+<title>検索結果</title>
 <!--     Fonts and icons     -->
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
@@ -42,27 +42,34 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category">ビール</a> <a
-								class="dropdown-item" href="category.html">ウィスキー</a> <a
-								class="dropdown-item" href="category.html">日本酒・焼酎</a> <a
-								class="dropdown-item" href="category.html">ワイン</a> <a
-								class="dropdown-item" href="category.html">その他お酒</a>
+							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
+								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
+								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
+								class="dropdown-item" href="Category?id=4">ワイン</a> <a
+								class="dropdown-item" href="Category?id=5">その他お酒</a>
 						</div></li>
-						<c:if test="${userInfo.name!= null}">
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
-							<p>${userInfo.name}さん</p>
-					</a></li></c:if>
+					<c:if test="${userInfo==null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Login">
+								<p>Login</p>
+						</a></li>
+					</c:if>
+					<c:if test="${userInfo!= null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="UserData">
+								<p>${userInfo.name}さん</p>
+						</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Logout">
+								<p>Log out</p>
+						</a></li>
+					</c:if>
 
-
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="Logout">
-							<p>Log out</p>
-					</a></li>
-					<form action="Search" method="post">
-						<li class="nav-item"><input class="form-control" type="text"
-							name="search" placeholder="キーワードで探す"></li>
-					</form>
+					<li class="nav-item">
+						<form action="Search">
+							<input class="form-control" type="text" placeholder="キーワードで探す"
+								name="search_word">
+						</form>
 				</ul>
 			</div>
 		</div>
@@ -71,65 +78,27 @@
         <div class="title">
       <div class="alert alert-primary" role="alert">
   <h1>検索結果</h1>
-          <h5>５件ヒットしました</h5>
+        <!--   <h5>５件ヒットしました</h5> -->
             </div></div><br><br>
+            <c:forEach var="item" items="${searchltItemList}">
       <div class="card" style="width: 20rem; margin: 22px">
-          <a href="itemDitaile.html">
-  <img class="card-img-top" src="assets/img/1000.jpg" alt="Top1">
+          <a href="ItemDetail?id=${item.id}">
+  <img class="card-img-top" src="assets/img/${item.fileName}" >
           </a>
   <div class="card-body">
-      <a href="itemDelete.html">
-    <h4 class="card-title">アイテム名</h4>
+      <a href="ItemDitail?=${item.id}">
+    <h4 class="card-title">${item.name}</h4>
       </a>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-      <p>○○○円</p>
-    <a href="car.html" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div><div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1001.jpg" alt="Top2">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-    <a href="#" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div><div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1002.jpg" alt="Top3">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-    <a href="#" class="btn btn-primary">カートに入れる</a>
+    <p class="card-text">${item.detail}</p>
+      <p>${item.price}円</p>
+    <a href="ItemAdd?id=${item.id}" class="btn btn-primary">カートに入れる</a>
   </div>
 </div>
-          <div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1000.jpg" alt="Top1">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-      <p>○○○円</p>
-    <a href="#" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div><div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1001.jpg" alt="Top2">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-    <a href="#" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div><div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1002.jpg" alt="Top3">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-    <a href="#" class="btn btn-primary">カートに入れる</a>
-  </div>
+</c:forEach>
 </div>
+<!--
 
-        </div>
-       <br><br>
+
       	<div style=" margin-left:850px;">
       <ul class="pagination">
                 <li class="page-item">
@@ -152,7 +121,7 @@
                   </a>
                 </li>
               </ul>
-      </div>
+      </div> -->
       <br><br>
 
 
@@ -161,9 +130,7 @@
 
 
       <footer class="footer" data-background-color="black">
-      <div class=" container ">
       <div >Made by Toshiki Munakata.
-      </div>
       </div>
       </footer>
     <!--   Core JS Files   -->

@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.ItemDataBeans;
+import dao.ItemDAO;
+
 /**
  * Servlet implementation class ItemDetail
  */
@@ -16,18 +19,29 @@ import javax.servlet.http.HttpServletResponse;
 public class ItemDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ItemDetail() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+
+
+	    // TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// URLからGETパラメータとしてIDを受け取る
+		String id = request.getParameter("id");
+		// 確認用：idをコンソールに出力
+		System.out.println(id);
+
+		//カテゴリ別アイテム一覧を取得
+		ItemDAO itemDao = new ItemDAO();
+		ItemDataBeans item = itemDao.itemDetail(id);
+
+		request.setAttribute("item", item);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/itemdetail.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -35,7 +49,8 @@ public class ItemDetail extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

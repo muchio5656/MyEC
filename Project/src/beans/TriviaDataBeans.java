@@ -13,6 +13,14 @@ public class TriviaDataBeans implements Serializable {
 
 	}
 
+	public TriviaDataBeans(int id2, String name2, String detail2, int itemCategoryid2) {
+
+		this.id=id2;
+		this.name=name2;
+		this.detail=detail2;
+		this.itemCategoryid=itemCategoryid2;
+	}
+
 	public int getId() {
 		return id;
 	}

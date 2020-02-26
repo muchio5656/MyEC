@@ -20,15 +20,16 @@ import dao.UserDAO;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
@@ -37,39 +38,38 @@ public class Login extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		//文字化け防止処理
 		request.setCharacterEncoding("UTF-8");
 
-		//リクエストパラメータの入力項目を取得
-		String mailAddress = request.getParameter("mailAddress");
-		String password = request.getParameter("password");
 
-		UserDAO userDao = new UserDAO();
+			//リクエストパラメータの入力項目を取得
+			String mailAddress = request.getParameter("mailAddress");
+			String password = request.getParameter("password");
 
-		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
-		UserDataBeans user = userDao.findByLoginInfo(mailAddress, password);
+			UserDAO userDao = new UserDAO();
 
-		if (user == null) {
-			// リクエストスコープにエラーメッセージをセット
-			request.setAttribute("errMsg", "入力した内容は正しくありません");
+			// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
+			UserDataBeans user = userDao.findByLoginInfo(mailAddress, password);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-			dispatcher.forward(request, response);
-			return;
-		}
+			if (user == null) {
+				// リクエストスコープにエラーメッセージをセット
+				request.setAttribute("errMsg", "入力した内容は正しくありません");
 
-		//データベースに該当データが見つかった場合(ログイン成功時)
-		// セッションにユーザの情報をセット
-				HttpSession session = request.getSession();
-				session.setAttribute("userInfo", user);
-				//Topページへリダイレクト
-				response.sendRedirect("Top");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+				dispatcher.forward(request, response);
+				return;
 			}
 
+			//データベースに該当データが見つかった場合(ログイン成功時)
+			// セッションにユーザの情報をセット
 
+			HttpSession session = request.getSession();
+			session.setAttribute("userInfo", user);
+			//Topページへリダイレクト
+			response.sendRedirect("Top");
 
 
 	}
-
-
+}

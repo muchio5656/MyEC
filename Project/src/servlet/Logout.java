@@ -36,6 +36,7 @@ public class Logout extends HttpServlet {
 		// ログイン時に保存したセッション内のユーザ情報を削除
 		session.removeAttribute("master");
 		session.removeAttribute("userInfo");
+		session.removeAttribute("cart");
 
 
 

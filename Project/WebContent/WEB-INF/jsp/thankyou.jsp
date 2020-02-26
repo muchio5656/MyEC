@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<title>ログインページ</title>
+<title>ご購入ありがとうございます</title>
 <!--     Fonts and icons     -->
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
@@ -44,29 +44,34 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category">ビール</a> <a
-								class="dropdown-item" href="category.html">ウィスキー</a> <a
-								class="dropdown-item" href="category.html">日本酒・焼酎</a> <a
-								class="dropdown-item" href="category.html">ワイン</a> <a
-								class="dropdown-item" href="category.html">その他お酒</a>
-						</div><li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
-              <p>${userInfo.name}さん</p>
-            </a>
-          </li>
-          </li>
+							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
+								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
+								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
+								class="dropdown-item" href="Category?id=4">ワイン</a> <a
+								class="dropdown-item" href="Category?id=5">その他お酒</a>
+						</div></li>
+					<c:if test="${userInfo==null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Login">
+								<p>Login</p>
+						</a></li>
+					</c:if>
+					<c:if test="${userInfo!= null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="UserData">
+								<p>${userInfo.name}さん</p>
+						</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Logout">
+								<p>Log out</p>
+						</a></li>
+					</c:if>
 
-          <li class="nav-item">
-            <a class="nav-link btn btn-black" href="Logout">
-              <p>Log out</p>
-            </a>
-          </li>
-         <form action="Search" method="post">
-          <li class="nav-item">
-            <input class="form-control" type="text" name="search"
-							placeholder="キーワードで探す">
-          </li>
-            </form>
+					<li class="nav-item">
+						<form action="Search">
+							<input class="form-control" type="text" placeholder="キーワードで探す"
+								name="search_word">
+						</form>
         </ul>
       </div>
     </div>
@@ -82,7 +87,7 @@
                 </div>
                 <div align="center">2020/12/31お届け予定</div>
                 <div class="card-footer text-center">
-                  <a href="top.html" class="btn btn-round btn-lg">TOPページへ</a>
+                  <a href="Top" class="btn btn-round btn-lg">TOPページへ</a>
                 </div>
               </form>
             </div>

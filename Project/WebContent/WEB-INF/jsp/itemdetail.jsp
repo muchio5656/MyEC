@@ -42,27 +42,34 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category">ビール</a> <a
-								class="dropdown-item" href="category.html">ウィスキー</a> <a
-								class="dropdown-item" href="category.html">日本酒・焼酎</a> <a
-								class="dropdown-item" href="category.html">ワイン</a> <a
-								class="dropdown-item" href="category.html">その他お酒</a>
+							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
+								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
+								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
+								class="dropdown-item" href="Category?id=4">ワイン</a> <a
+								class="dropdown-item" href="Category?id=5">その他お酒</a>
 						</div></li>
-						<c:if test="${userInfo.name!= null}">
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
-							<p>${userInfo.name}さん</p>
-					</a></li></c:if>
+					<c:if test="${userInfo==null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Login">
+								<p>Login</p>
+						</a></li>
+					</c:if>
+					<c:if test="${userInfo!= null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="UserData">
+								<p>${userInfo.name}さん</p>
+						</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Logout">
+								<p>Log out</p>
+						</a></li>
+					</c:if>
 
-
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="Logout">
-							<p>Log out</p>
-					</a></li>
-					<form action="Search" method="post">
-						<li class="nav-item"><input class="form-control" type="text"
-							name="search" placeholder="キーワードで探す"></li>
-					</form>
+					<li class="nav-item">
+						<form action="Search">
+							<input class="form-control" type="text" placeholder="キーワードで探す"
+								name="search_word">
+						</form>
 				</ul>
 			</div>
 		</div>
@@ -74,27 +81,13 @@
             </div><br><br>
 
     <div class="card mb-4">
-  <img class="card-img-top" src="assets/img/1000.jpg" alt="Card image cap">
+  <img class="card-img-top" src="assets/img/${item.fileName}" alt="Card image cap">
   <div class="card-body">
-    <h1 class="card-title">サントリー角瓶</h1>
-    <p class="card-text">商品紹介
-■国内NO.1ウイスキーのサントリー「角瓶」とは
+    <h1 class="card-title">${item.name}</h1>
+    <p class="card-text">${item.detail}</p>
 
-「日本人の舌に合う日本のウイスキーをつくりたい」。
-
-1937年、壽屋(現サントリー)創業者の鳥井信治郎が十数年かけて完成させたウイスキーが「角瓶」です。
-
-その繊細な味わいは日本人の味覚を満足させ、当時の人々の心を豊かにしました。その後70年以上にわたって日本の食卓で愛され続け、2014年には過去最高販売数量を更新(※1)。国内NO.1ウイスキー(※2)となりました。
-
-※2 サントリー出
-
-
-
-原材料・成分
-モルト、グレーン</p>
-
-      <div align="right"><h2>○○○円</h2>
-      <a href="car.html" class="btn btn-primary btn-lg">カートに入れる</a></div>
+      <div align="right"><h2>${item.price}円</h2>
+      <a href="ItemAdd?id=${item.id}" class="btn btn-primary btn-lg">カートに入れる</a></div>
   </div>
 </div>
         </div>

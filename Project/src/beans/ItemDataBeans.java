@@ -125,4 +125,9 @@ public class ItemDataBeans implements Serializable {
 		this.itemCategoryName = itemCategoryName;
 	}
 
+	public String getFormatTotalPrice() {
+
+		return String.format("%,d", this.price);
+	}
+
 }
