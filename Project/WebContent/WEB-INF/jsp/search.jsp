@@ -15,6 +15,7 @@
 <!-- CSS Files -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+<link href="./assets/demo/list.css" rel="stylesheet" />
 </head>
 <body>
 	<nav
@@ -56,7 +57,7 @@
 					</c:if>
 					<c:if test="${userInfo!= null}">
 						<li class="nav-item"><a class="nav-link btn btn-black"
-							href="UserData">
+							href="UserData?id=${userInfo.id}">
 								<p>${userInfo.name}さん</p>
 						</a></li>
 						<li class="nav-item"><a class="nav-link btn btn-black"
@@ -90,7 +91,7 @@
     <h4 class="card-title">${item.name}</h4>
       </a>
     <p class="card-text">${item.detail}</p>
-      <p>${item.price}円</p>
+      <p>${item.formatPrice}円</p>
     <a href="ItemAdd?id=${item.id}" class="btn btn-primary">カートに入れる</a>
   </div>
 </div>

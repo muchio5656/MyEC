@@ -108,7 +108,7 @@ public class BuyDAO {
 		con = DBManager.getConnection();
 
 		st = con.prepareStatement(
-				"SSELECT * FROM buy JOIN delivery_method " +
+				"SELECT * FROM buy JOIN delivery_method " +
 				"ON buy.delivery_method_id = delivery_method.id " +
 				"WHERE buy.id = ?");
 		st.setInt(1, i);

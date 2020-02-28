@@ -56,7 +56,7 @@
 					</c:if>
 					<c:if test="${userInfo!= null}">
 						<li class="nav-item"><a class="nav-link btn btn-black"
-							href="UserData">
+							href="UserData?id=${userInfo.id}">
 								<p>${userInfo.name}さん</p>
 						</a></li>
 						<li class="nav-item"><a class="nav-link btn btn-black"
@@ -91,9 +91,9 @@
             <tbody>
                 <tr>
                     <td></td>
-                    <th>2020/01/01</th>
-                    <th>通常配送</th>
-                     <th>1000円</th>
+                    <th>${use.formatCreateDate}</th>
+                    <th>${use.deliveryMethodName}</th>
+                     <th>${use.formatTotalPrice}円</th>
                 </tr>
 
 
@@ -111,18 +111,17 @@
                 </tr>
             </thead>
             <tbody>
+            	<c:forEach var="item" items="${itemDetail}">
                 <tr>
                     <td></td>
-                    <th>角瓶</th>
-                    <th>1400円</th>
+                    <th>${item.name}</th>
+                    <th>${item.formatPrice}円</th>
                 </tr>
-                <tr>
-                    <td></td>
-                    <th>通常配送</th>
-                    <th>〇円</th>
-
-                </tr>
-
+</c:forEach>
+<tr>
+   		<td></td>
+		<th class="center">${use.deliveryMethodName}</th>
+		<th class="center">${use.deliveryMethodPrice}円</th>
 
             </tbody>
 

@@ -50,7 +50,7 @@
 						</div></li>
 						<c:if test="${userInfo.name!= null}">
 					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
+						href="UserData?id=${userInfo.id}">
 							<p>${userInfo.name}さん</p>
 					</a></li></c:if>
 

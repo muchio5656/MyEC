@@ -33,12 +33,11 @@ public class UserDAO {
 				return null;
 			}
 
-
 			int loginId = rs.getInt("id");
 			String loginMailAddress = rs.getString("mail_address");
 			String loginName = rs.getString("name");
 
-			return new UserDataBeans(loginId,loginMailAddress, loginName);
+			return new UserDataBeans(loginId, loginMailAddress, loginName);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -296,6 +295,70 @@ public class UserDAO {
 		}
 	}
 
+	public void userUpdate(String id, String mailAddress, String name, String address) {
+
+		Connection conn = null;
+		try {
+			conn = DBManager.getConnection();
+			String sql = "UPDATE user SET mail_address = ?,name = ?,address = ? WHERE id = ?;";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, mailAddress);
+			pStmt.setString(2, name);
+			pStmt.setString(3, address);
+			pStmt.setString(4, id);
+
+			pStmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+			}
+
+		}
+	}
+
+	public boolean uptadeIdCheck(String mailAddress,String id) {
+		Connection conn = null;
+		try {
+			conn = DBManager.getConnection();
+
+			String sql = "SELECT * FROM user WHERE mail_address = ? AND NOT id = ?;";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, mailAddress);
+			pStmt.setString(2, id);
+
+			ResultSet rs = pStmt.executeQuery();
+
+			if (!rs.next()) {
+				return false;
+			}
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return true;
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return true;
+				}
+			}
+		}
+	}
 }
 
 //	public boolean masterLogin(String mailAddress, String password) {

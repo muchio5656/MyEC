@@ -55,11 +55,13 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
-								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
-								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
-								class="dropdown-item" href="Category?id=4">ワイン</a> <a
-								class="dropdown-item" href="Category?id=5">その他お酒</a>
+							<a class="dropdown-item" href="Category?id=1">ビール</a>
+							<a class="dropdown-item" href="Category?id=2">ウィスキー</a>
+							<a class="dropdown-item" href="Category?id=3">日本酒・焼酎</a>
+							 <a class="dropdown-item" href="Category?id=4">ワイン</a>
+							 <a class="dropdown-item" href="Category?id=5">その他お酒</a>
+
+
 						</div></li>
 					<c:if test="${userInfo==null}">
 						<li class="nav-item"><a class="nav-link btn btn-black"
@@ -84,6 +86,10 @@
 								name="search_word">
 						</form>
 					</li>
+					<li class="nav-item"><a class="nav-link btn warning"
+						href="Car">
+							<p>カートへ</p>
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -100,7 +106,7 @@
 				<h3>This is a magical site that makes you want to drink</h3>
 				<h5>〜酒が飲みたくなる魔法のサイト〜</h5>
 			</div>
-              <!--   <img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png" alt="">
+			<!--   <img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png" alt="">
                 <img src="assets/img/ダウンロード (2).png" alt="">
                 <img src="assets/img/0VCehPv4DI8ygoj1582656279_1582656344.png" alt="">
  -->
@@ -108,21 +114,30 @@
 	</div>
 	<div class="main">
 		<div class="section section-images">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="hero-images-container">
-                <img src="assets/img/ダウンロード (2).png" alt="">
-              </div>
-              <div class="hero-images-container-1">
-                <img src="assets/img/ダウンロード (2).png" alt="">
-              </div>
-              <div class="hero-images-container-2">
-                <img src="assets/img/0VCehPv4DI8ygoj1582656279_1582656344.png" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
+			<div class="row top-item">
+
+				<div class="col-2">
+					<img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png"
+						alt="">
+				</div>
+				<div class="col-2">
+					<img src="assets/img/sake1.png" alt="">
+				</div>
+				<div class="col-2">
+					<img src="assets/img/1002.jpg" alt="">
+				</div>
+				<div class="col-2">
+					<img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png"
+						alt="">
+				</div>
+				<div class="col-2">
+					<img src="assets/img/sake1.png" alt="">
+				</div>
+				<div class="col-2">
+					<img src="assets/img/1002.jpg" alt="">
+				</div>
+
+			</div>
 		</div>
 		<div class="container">
 			<div class="title">
@@ -205,9 +220,10 @@
 				<div class="card bg-dark text-white">
 					<img class="card-img" src="assets/img/bg8.jpg" alt="Card image">
 					<div class="card-img-overlay">
-						<h1 class="card-title">${trivia.name}</h1><br> <br>
+						<h1 class="card-title">${trivia.name}</h1>
+						<br> <br>
 						<p class="card-text">
-							<font  size="5">${trivia.detail}</font>
+							<font size="5">${trivia.detail}</font>
 						</p>
 					</div>
 				</div>

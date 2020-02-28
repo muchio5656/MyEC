@@ -22,42 +22,39 @@ import dao.UserDAO;
 public class UserData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserData() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserData() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		// セッション開始
-//				HttpSession session = request.getSession();
-
+		//				HttpSession session = request.getSession();
 
 		//ユーザデータ更新用
 		String id = request.getParameter("id");
 
-				// idを引数にして、idに紐づくユーザ情報を出力する
-				UserDAO userDao = new UserDAO();
-				UserDataBeans user = userDao.userDetail(id);
+		// idを引数にして、idに紐づくユーザ情報を出力する
+		UserDAO userDao = new UserDAO();
+		UserDataBeans user = userDao.userDetail(id);
 
-				request.setAttribute("user", user);
+		request.setAttribute("user", user);
 
+		//購入履歴用
 
-				//購入履歴用
+		BuyDAO buyDao = new BuyDAO();
+		List<BuyDataBeans> userHistory = buyDao.buyHistory(id);
 
-
-				BuyDAO buyDao = new BuyDAO();
-				List<BuyDataBeans> userHistory = buyDao.buyHistory(id);
-
-				//リクエストスコープにユーザ一覧情報をセット
-				request.setAttribute("userHistory", userHistory);
-
+		//リクエストスコープにユーザ一覧情報をセット
+		request.setAttribute("userHistory", userHistory);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userdata.jsp");
 		dispatcher.forward(request, response);
@@ -66,9 +63,24 @@ public class UserData extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		//文字化け防止処理
+		request.setCharacterEncoding("UTF-8");
+		// リクエストパラメータの入力項目を取得
+		String id = request.getParameter("id");
+		String mailAddress = request.getParameter("mailAddress");
+		String name = request.getParameter("name");
+		String address = request.getParameter("address");
+
+		request.setAttribute("id", id);
+		request.setAttribute("mailAddress", mailAddress);
+		request.setAttribute("name", name);
+		request.setAttribute("address", address);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

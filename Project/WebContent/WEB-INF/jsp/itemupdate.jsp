@@ -49,15 +49,23 @@
     <input type="file" name="fileName" value="${item.fileName}" >
   </div>
           <br>
-          <!-- <div class="row">
-  <div class="form-group col s6">
-    <label for="exampleInputPassword1">売上数</label>
-    <input type="text" class="form-control"  placeholder="売上数">
-              </div></div> --></div>
+         </div>
            <div class="form-group col s4">
     <label>商品詳細</label>
     <input type="text" class="form-control" name="detail" value="${item.detail}">
   </div>
+   <div class="form-group col s6">
+					<label>アイテムカテゴリID</label>
+					<select data-style="select-with-transition btn-primary btn-round"
+						title="カテゴリー選択" data-size="7" name="categoryId">
+						<option value="1" >ビール</option>
+						<option value="2">ウィスキー</option>
+						<option value="3">焼酎・日本酒</option>
+						<option value="4">ワイン</option>
+						<option value="5">その他お酒</option>
+						<option value="6">酒以外</option>
+					</select>
+				</div>
 
           <br><br>
 

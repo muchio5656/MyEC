@@ -123,4 +123,5 @@ public class BuyDataBeans implements Serializable {
 		return String.format("%,d", this.totalPrice);
 	}
 
+	
 }

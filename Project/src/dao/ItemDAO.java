@@ -135,14 +135,14 @@ public class ItemDAO {
 		}
 	}
 
-	public void itemUpdate(String name, String price, String fileName, String detail,String id) {
+	public void itemUpdate(String name, String price, String fileName, String detail,String categoryId,String id) {
 
 		Connection conn = null;
 		try {
 			//データベースに接続
 			conn = DBManager.getConnection();
 			//UPDATE文を準備 password,name,birth_dateを更新
-			String sql = "UPDATE item SET name = ?,price = ? ,file_name = ? ,detail = ? WHERE id = ?;";
+			String sql = "UPDATE item SET name = ?,price = ? ,file_name = ? ,detail = ? ,item_category_id = ? WHERE id = ?;";
 
 			//UPDATEを実行し、結果を取得
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -150,7 +150,8 @@ public class ItemDAO {
 			pStmt.setString(2, price);
 			pStmt.setString(3, fileName);
 			pStmt.setString(4, detail);
-			pStmt.setString(5, id);
+			pStmt.setString(5, categoryId);
+			pStmt.setString(6, id);
 
 			pStmt.executeUpdate();
 
@@ -275,10 +276,6 @@ public class ItemDAO {
 			pStmt.setString(1, "%"+searchWord+"%");
 			ResultSet rs = pStmt.executeQuery();
 
-
-			if (!rs.next()) {
-				return null;
-			}
 
 			// 結果表に格納されたレコードの内容を
 			// Userインスタンスに設定し、ArrayListインスタンスに追加

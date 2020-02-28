@@ -130,4 +130,8 @@ public class ItemDataBeans implements Serializable {
 		return String.format("%,d", this.price);
 	}
 
+	public String getFormatPrice() {
+		return String.format("%,d", this.price);
+	}
+
 }

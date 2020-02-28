@@ -18,13 +18,6 @@
   </head>
   <body>
 
-  <c:if test="${userInfo.name!= null}">
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData">
-							<p>${userInfo.name}さん</p>
-					</a></li></c:if>
-
-
    <div class="section section-signup" style="background-image: url('assets/img/102.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
         <div class="container">
           <div class="row">

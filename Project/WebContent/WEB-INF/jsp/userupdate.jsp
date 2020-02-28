@@ -56,7 +56,7 @@
 					</c:if>
 					<c:if test="${userInfo!= null}">
 						<li class="nav-item"><a class="nav-link btn btn-black"
-							href="UserData">
+							href="UserData?id=${userInfo.id}">
 								<p>${userInfo.name}さん</p>
 						</a></li>
 						<li class="nav-item"><a class="nav-link btn btn-black"
@@ -79,21 +79,23 @@
        <div align="center" class="alert alert-primary" role="alert">
   入力内容確認
             </div>
-      <form action="update.html" method=""><br><br>
+
+      <form action="UserUpdate" method="post"><br><br>
+       <input type="hidden" name="id" value="${id}">
           <div class="row">
   <div class="form-group col s6">
     <label >Eメールアドレス</label>
-    <input type="email" class="form-control" value="muchinanoka@icloud.com" readonly>
+    <input type="email" class="form-control" name="mailAddress" value="${mailAddress}" readonly>
   </div>
           <div class="form-group col s6">
     <label>名前</label>
-     <input type="text" class="form-control" value="棟方俊樹" readonly>
+     <input class="form-control" name="name" value="${name}" readonly>
   </div>
           </div><br>
            <div class="row">
   <div class="form-group col s12">
     <label >住所</label>
-    <input type="text" class="form-control" value="青森県弘前市鬼沢字猿沢218" readonly>
+    <input type="text" class="form-control" name="address" value="${address}" readonly>
 
               </div></div><br><br>
 
@@ -104,10 +106,10 @@
 
 <div align="center" class="row">
 		<div class="input-field col s6">
-            <a href="usedata.html">
+            <a href="UserData?id=${user.id}">
                <button type="button" class="btn btn-default">戻る</button>
             </a>
-<button type="submit" class="btn btn-primary">a更新</button>
+<button type="submit" class="btn btn-primary">更新</button>
 
           </div>
     </div></form>

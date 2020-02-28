@@ -504,3 +504,12 @@
     display: none !important;
   }
 }
+
+.top-item div{
+	text-align: center;
+}
+
+.top-item img{
+	height: 300px;
+}
+

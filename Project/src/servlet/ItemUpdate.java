@@ -64,22 +64,25 @@ public class ItemUpdate extends HttpServlet {
 		String price = request.getParameter("price");
 		Part fileName = request.getPart("fileName");
 		String detail = request.getParameter("detail");
-		String itemCategoryId = request.getParameter("itemCategoryId");
+		String id = request.getParameter("id");
+		String categoryId = request.getParameter("categoryId");
+
 
 		ItemDAO item = new ItemDAO();
 
-		String fName = item.getFileName(fileName);
-		fileName.write(fName);
+
 
 		//値が間違ってる場合エラーメッセージをセットしてupdateページへフォワード
-		if (name.equals("") || price.equals("") || fileName.equals("") || detail.equals("")) {
+		if (name.equals("") || price.equals("") || fileName == null || detail.equals("")) {
 			request.setAttribute("errMsg", "更新失敗　未入力の項目があります");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/itemupdate.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
+		String fName = item.getFileName(fileName);
+		fileName.write(fName);
 
-		item.itemUpdate(name, price, fName, detail, itemCategoryId);
+		item.itemUpdate(name, price, fName, detail,categoryId, id);
 
 		response.sendRedirect("Masterlist");
 

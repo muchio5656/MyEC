@@ -34,11 +34,31 @@ public class Car extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session =request.getSession();
+
+			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>)session.getAttribute("cart");
+
+			if(cart == null) {
+				cart = new ArrayList<ItemDataBeans>();
+				session.setAttribute("cart", cart);
+
+			}
+			String cartActionMessage = "";
+
+			if(cart.size() == 0) {
+				cartActionMessage = "※カートに商品がありません※";
+			}
+			request.setAttribute("cartActionMessage", cartActionMessage);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/car.jsp");
 			dispatcher.forward(request, response);
 
-	}
+
+		}
+
+
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -52,23 +72,22 @@ public class Car extends HttpServlet {
 			String[] deleteItemIdList = request.getParameterValues("delete_item_id_list");
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
 
-
-		if(deleteItemIdList != null) {
-			for(String deleteItemId : deleteItemIdList) {
-				for(ItemDataBeans cartInItem : cart) {
-					if(cartInItem.getId()== Integer.parseInt(deleteItemId)) {
-						cart.remove(cartInItem);
-						break;
+			if (deleteItemIdList != null) {
+				for (String deleteItemId : deleteItemIdList) {
+					for (ItemDataBeans cartInItem : cart) {
+						if (cartInItem.getId() == Integer.parseInt(deleteItemId)) {
+							cart.remove(cartInItem);
+							break;
+						}
 					}
 				}
 			}
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/car.jsp");
-		dispatcher.forward(request, response);
-
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/car.jsp");
+			dispatcher.forward(request, response);
 
 		} catch (Exception e) {
 			e.printStackTrace();
-	}
+		}
 
-}}
+	}
+}

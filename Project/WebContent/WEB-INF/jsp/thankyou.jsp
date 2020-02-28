@@ -58,7 +58,7 @@
 					</c:if>
 					<c:if test="${userInfo!= null}">
 						<li class="nav-item"><a class="nav-link btn btn-black"
-							href="UserData">
+							href="UserData?id=${userInfo.id}">
 								<p>${userInfo.name}さん</p>
 						</a></li>
 						<li class="nav-item"><a class="nav-link btn btn-black"
