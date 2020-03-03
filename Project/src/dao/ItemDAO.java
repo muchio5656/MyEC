@@ -322,4 +322,49 @@ public class ItemDAO {
 		return name;
 	}
 
+	public List<ItemDataBeans> ranking() {
+		Connection conn = null;
+		List<ItemDataBeans> itemRanking = new ArrayList<ItemDataBeans>();
+		try {
+			conn = DBManager.getConnection();
+			String sql = "SELECT b.item_id,count(b.item_id) as count," +
+					"i.name,i.detail,i.price,i.file_name FROM buy_detail as b " +
+					"INNER JOIN item as i ON i.id = b.item_id " +
+					"GROUP BY b.item_id ORDER BY count DESC LIMIT 3";
+
+
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			// Userインスタンスに設定し、ArrayListインスタンスに追加
+
+			while (rs.next()) {
+				int itemId = rs.getInt("item_id");
+				String name = rs.getString("name");
+				int price = rs.getInt("price");
+				String detail = rs.getString("detail");
+				String fileName = rs.getString("file_name");
+
+				ItemDataBeans item = new ItemDataBeans(itemId,name,price,fileName,detail);
+
+				itemRanking.add(item);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+		return itemRanking;
+	}
+
 }

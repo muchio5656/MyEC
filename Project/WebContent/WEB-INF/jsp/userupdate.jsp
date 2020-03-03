@@ -17,8 +17,7 @@
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg bg-primary ">
+	<nav class="navbar navbar-expand-lg bg-primary ">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ"
@@ -64,88 +63,61 @@
 								<p>Log out</p>
 						</a></li>
 					</c:if>
-
 					<li class="nav-item">
 						<form action="Search">
 							<input class="form-control" type="text" placeholder="キーワードで探す"
 								name="search_word">
 						</form>
+					<li class="nav-item"><a class="nav-link btn warning"
+						href="Car">
+							<p>カートへ</p>
+					</a></li>
 				</ul>
 			</div>
 		</div>
-	</nav><br><br><br>
-
-      <div class="container">
-       <div align="center" class="alert alert-primary" role="alert">
-  入力内容確認
-            </div>
-
-      <form action="UserUpdate" method="post"><br><br>
-       <input type="hidden" name="id" value="${id}">
-          <div class="row">
-  <div class="form-group col s6">
-    <label >Eメールアドレス</label>
-    <input type="email" class="form-control" name="mailAddress" value="${mailAddress}" readonly>
-  </div>
-          <div class="form-group col s6">
-    <label>名前</label>
-     <input class="form-control" name="name" value="${name}" readonly>
-  </div>
-          </div><br>
-           <div class="row">
-  <div class="form-group col s12">
-    <label >住所</label>
-    <input type="text" class="form-control" name="address" value="${address}" readonly>
-
-              </div></div><br><br>
-
-          <div align="center">上記内容で更新してよろしいでしょうか？？</div>
-
-
-
-
-<div align="center" class="row">
-		<div class="input-field col s6">
-            <a href="UserData?id=${user.id}">
-               <button type="button" class="btn btn-default">戻る</button>
-            </a>
-<button type="submit" class="btn btn-primary">更新</button>
-
-          </div>
-    </div></form>
-      <br><br><br><br><br>
-
-
-
-      </div>
-
-
-
-
-
-
-
-
-
-
-    <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div align="center" class="alert alert-primary" role="alert">
+			入力内容確認</div>
+		<form action="UserUpdate" method="post">
+			<br> <br> <input type="hidden" name="id" value="${id}">
+			<div class="row">
+				<div class="form-group col s6">
+					<label>Eメールアドレス</label> <input type="email" class="form-control"
+						name="mailAddress" value="${mailAddress}" readonly>
+				</div>
+				<div class="form-group col s6">
+					<label>名前</label> <input class="form-control" name="name"
+						value="${name}" readonly>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="form-group col s12">
+					<label>住所</label> <input type="text" class="form-control"
+						name="address" value="${address}" readonly>
+				</div>
+			</div>
+			<br> <br>
+			<div align="center">上記内容で更新してよろしいでしょうか？？</div>
+			<div align="center" class="row">
+				<div class="input-field col s6">
+					<a href="UserData?id=${user.id}">
+						<button type="button" class="btn btn-default">戻る</button>
+					</a>
+					<button type="submit" class="btn btn-primary">更新</button>
+				</div>
+			</div>
+		</form>
+		<br> <br> <br> <br> <br>
+	</div>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+</body>
 </html>

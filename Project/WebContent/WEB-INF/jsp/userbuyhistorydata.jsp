@@ -17,8 +17,7 @@
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg bg-primary ">
+	<nav class="navbar navbar-expand-lg bg-primary ">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ"
@@ -70,93 +69,71 @@
 							<input class="form-control" type="text" placeholder="キーワードで探す"
 								name="search_word">
 						</form>
+					<li class="nav-item"><a class="nav-link btn warning"
+						href="Car">
+							<p>カートへ</p>
+					</a></li>
 				</ul>
 			</div>
 		</div>
-	</nav><br><br><br>
-
-      <div class="container">
-     <div align="center" class="alert alert-primary" role="alert">
-  購入詳細
-            </div>
-      <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>   </th>
-                    <th>購入日時</th>
-                    <th>配送方法</th>
-                     <th>購入金額</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <th>${use.formatCreateDate}</th>
-                    <th>${use.deliveryMethodName}</th>
-                     <th>${use.formatTotalPrice}円</th>
-                </tr>
-
-
-            </tbody>
-
-        </table>
-
-          <br><br><br><br><br>
-      <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>   </th>
-                    <th>商品名</th>
-                    <th>単価</th>
-                </tr>
-            </thead>
-            <tbody>
-            	<c:forEach var="item" items="${itemDetail}">
-                <tr>
-                    <td></td>
-                    <th>${item.name}</th>
-                    <th>${item.formatPrice}円</th>
-                </tr>
-</c:forEach>
-<tr>
-   		<td></td>
-		<th class="center">${use.deliveryMethodName}</th>
-		<th class="center">${use.deliveryMethodPrice}円</th>
-
-            </tbody>
-
-        </table>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div align="center" class="alert alert-primary" role="alert">
+			購入詳細</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th></th>
+					<th>購入日時</th>
+					<th>配送方法</th>
+					<th>購入金額</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td>${use.formatCreateDate}</td>
+					<td>${use.deliveryMethodName}</td>
+					<td>${use.formatTotalPrice}円</td>
+				</tr>
 
 
-      </div>
+			</tbody>
 
+		</table>
 
+		<br> <br> <br> <br> <br>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th></th>
+					<th>商品名</th>
+					<th>単価</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="item" items="${itemDetail}">
+					<tr>
+						<td></td>
+						<td>${item.name}</td>
+						<td>${item.formatPrice}円</td>
+					</tr>
+				</c:forEach>
+				<tr>
+					<td></td>
+					<td class="center">${use.deliveryMethodName}</td>
+					<td class="center">${use.deliveryMethodPrice}円</td>
+			</tbody>
+		</table>
+	</div>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
 
-
-
-
-
-
-
-
-       <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
+</body>
 </html>

@@ -28,9 +28,7 @@ public class FoodDAO {
 			pStmt.setString(1, s);
 			ResultSet rs = pStmt.executeQuery();
 
-			if (!rs.next()) {
-				return null;
-			}
+
 			while (rs.next()) {
 				int foodId = rs.getInt("food_id");
 				String itemName = rs.getString("i.name");

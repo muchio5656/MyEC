@@ -1,5 +1,9 @@
 package dao;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -8,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.bind.DatatypeConverter;
 
 import beans.UserDataBeans;
 import database.DBManager;
@@ -326,7 +332,7 @@ public class UserDAO {
 		}
 	}
 
-	public boolean uptadeIdCheck(String mailAddress,String id) {
+	public boolean uptadeIdCheck(String mailAddress, String id) {
 		Connection conn = null;
 		try {
 			conn = DBManager.getConnection();
@@ -359,41 +365,23 @@ public class UserDAO {
 			}
 		}
 	}
-}
 
-//	public boolean masterLogin(String mailAddress, String password) {
-//		Connection conn = null;
-//		try {
-//			conn = DBManager.getConnection();
-//
-//			String sql = "SELECT * FROM user WHERE mail_address = ? AND WHERE password = ?";
-//
-//			PreparedStatement pStmt = conn.prepareStatement(sql);
-//			pStmt.setString(1, mailAddress);
-//			pStmt.setString(2, password);
-//			ResultSet rs = pStmt.executeQuery();
-//
-//			boolean id = rs.getString("id") != null;
-//			//trueが成功、falseがエラー
-//			if (id = "1" != null) {
-//				return true;
-//			}
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			return false;
-//		} finally {
-//			// データベース切断
-//			if (conn != null) {
-//				try {
-//					conn.close();
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//					return false;
-//				}
-//			}
-//		}
-//
-//		return false;
-//	}
-//}
+	public String angoka(String password) {
+
+		String source = password;
+		Charset charset = StandardCharsets.UTF_8;
+		String algorithm = "MD5";
+		byte[] bytes = null;
+		try {
+			bytes = MessageDigest.getInstance(algorithm).digest(source.getBytes(charset));
+		} catch (NoSuchAlgorithmException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		String result = DatatypeConverter.printHexBinary(bytes);
+		return result;
+	}
+
+
+
+}

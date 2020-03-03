@@ -24,7 +24,7 @@
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
+<link href="./assets/demo/list2.css" rel="stylesheet" />
 <link href="./assets/demo/demo.css" rel="stylesheet" />
 </head>
 <body class="index-page sidebar-collapse">
@@ -55,11 +55,11 @@
 					</a>
 						<div class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="Category?id=1">ビール</a>
-							<a class="dropdown-item" href="Category?id=2">ウィスキー</a>
-							<a class="dropdown-item" href="Category?id=3">日本酒・焼酎</a>
-							 <a class="dropdown-item" href="Category?id=4">ワイン</a>
-							 <a class="dropdown-item" href="Category?id=5">その他お酒</a>
+							<a class="dropdown-item" href="Category?id=1">ビール</a> <a
+								class="dropdown-item" href="Category?id=2">ウィスキー</a> <a
+								class="dropdown-item" href="Category?id=3">日本酒・焼酎</a> <a
+								class="dropdown-item" href="Category?id=4">ワイン</a> <a
+								class="dropdown-item" href="Category?id=5">その他お酒</a>
 
 
 						</div></li>
@@ -106,10 +106,7 @@
 				<h3>This is a magical site that makes you want to drink</h3>
 				<h5>〜酒が飲みたくなる魔法のサイト〜</h5>
 			</div>
-			<!--   <img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png" alt="">
-                <img src="assets/img/ダウンロード (2).png" alt="">
-                <img src="assets/img/0VCehPv4DI8ygoj1582656279_1582656344.png" alt="">
- -->
+
 		</div>
 	</div>
 	<div class="main">
@@ -117,24 +114,22 @@
 			<div class="row top-item">
 
 				<div class="col-2">
-					<img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png"
-						alt="">
+					<img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png">
 				</div>
 				<div class="col-2">
-					<img src="assets/img/sake1.png" alt="">
+					<img src="assets/img/sake1.png">
 				</div>
 				<div class="col-2">
-					<img src="assets/img/1002.jpg" alt="">
+					<img src="assets/img/1002.jpg">
 				</div>
 				<div class="col-2">
-					<img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png"
-						alt="">
+					<img src="assets/img/NQBApId8hoSqtCZ1582656572_1582656577.png">
 				</div>
 				<div class="col-2">
-					<img src="assets/img/sake1.png" alt="">
+					<img src="assets/img/sake1.png">
 				</div>
 				<div class="col-2">
-					<img src="assets/img/1002.jpg" alt="">
+					<img src="assets/img/1002.jpg">
 				</div>
 
 			</div>
@@ -144,57 +139,35 @@
 				<div class="alert alert-primary" role="alert">売り上げランキング</div>
 			</div>
 			<br> <br>
-			<div class="card" style="width: 20rem; margin: 22px">
-				<a href="ItemDitail"> <img class="card-img-top"
-					src="assets/img/1000.jpg" alt="Top1">
-				</a>
-				<div class="card-body">
-					<h3>1位</h3>
-					<a href="ItemDitail">
-						<h4 class="card-title">アイテム名</h4>
-					</a>
-					<p class="card-text">アイテム詳細 example text to build on the card
-						title and make up the bulk of the card's content.</p>
-					<div align="right">
-						<p>○○○円</p>
-						<a href="Car" class="btn btn-primary">カートに入れる</a>
-					</div>
+			<div class="row">
+				<div class="col-4">
+					<div class="rank">1位</div>
+				</div>
+				<div class="col-4">
+					<div class="rank">2位</div>
+				</div>
+				<div class="col-4">
+					<div class="therd">3位</div>
 				</div>
 			</div>
-			<div class="card" style="width: 20rem; margin: 22px">
-				<a href="ItemDetail"> <img class="card-img-top"
-					src="assets/img/1001.jpg" alt="Top2">
-				</a>
-				<div class="card-body">
-					<h3>2位</h3>
-					<a href="Itemdetail">
-						<h4 class="card-title">アイテム名</h4>
+			<c:forEach var="item" items="${itemRanking}">
+				<div class="card" style="width: 20rem; margin: 22px">
+					<a href="ItemDetail?id=${item.id}"> <img class="card_img_top"
+						src="assets/img/${item.fileName}">
 					</a>
-					<p class="card-text">アイテム詳細 example text to build on the card
-						title and make up the bulk of the card's content.</p>
-					<div align="right">
-						<p>○○○円</p>
-						<a href="Car" class="btn btn-primary">カートに入れる</a>
+					<div class="card-body">
+						<a href="ItemDetail?id=${item.id}">
+							<h4 class="card_title">${item.name}</h4>
+						</a>
+						<p class="card_text">${item.detail}</p>
+						<div align="right">
+							<p>${item.formatPrice}円</p>
+							<a href="ItemAdd?id=${item.id}" class="btn btn-primary">カートに入れる</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="card" style="width: 20rem; margin: 22px">
-				<a href="ItemDetail"> <img class="card-img-top"
-					src="assets/img/1002.jpg" alt="Top3">
-				</a>
-				<div class="card-body">
-					<h3>3位</h3>
-					<a href="ItemDetail">
-						<h4 class="card-title">アイテム名</h4>
-					</a>
-					<p class="card-text">アイテム詳細 example text to build on the card
-						title and make up the bulk of the card's content.</p>
-					<div align="right">
-						<p>○○○円</p>
-						<a href="Car" class="btn btn-primary">カートに入れる</a>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
+
 		</div>
 		<br> <br> <br> <br> <br> <br>
 		<c:forEach begin="0" end="0" var="f" items="${food}">
@@ -205,7 +178,7 @@
 						<img class="card-img-top" src="assets/img/${f.foodFile}"
 							alt="Card image cap">
 						<div class="card-body">
-							<h4 class="card-title">${f.foodName}</h4>
+							<h5 class="card-title">${f.foodName}</h5>
 
 						</div>
 					</div>
@@ -218,7 +191,7 @@
 			<div class="alert alert-primary" role="alert">今日のウンチク</div>
 			<br> <br> <a href="Category?id=${trivia.itemCategoryid}">
 				<div class="card bg-dark text-white">
-					<img class="card-img" src="assets/img/bg8.jpg" alt="Card image">
+					<img class="card-img" src="assets/img/bg8.jpg">
 					<div class="card-img-overlay">
 						<h1 class="card-title">${trivia.name}</h1>
 						<br> <br>
@@ -286,21 +259,12 @@
 				</a>
 			</div>
 		</div>
-
-
-
-
-
 	</div>
-
-
 	<footer class="footer" data-background-color="black">
 		<div class=" container ">
-
 			<div>Made by Toshiki Munakata.</div>
 		</div>
 	</footer>
-
 	<!--   Core JS Files   -->
 	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>

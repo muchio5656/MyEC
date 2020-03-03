@@ -15,6 +15,8 @@
 <!-- CSS Files -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+<link href="./assets/demo/list.css" rel="stylesheet" />
+
 </head>
 
 </head>
@@ -47,14 +49,20 @@
 						class="form-control">
 				</div>
 				<div class="form-group col s6">
-					<label>商品画像</label> <input type="file" name="fileName"
-						class="form-control">
+					<label>商品画像</label>
+					<div>
+						<span class="btn btn-raised btn-round btn-default btn-file">
+							<span class="fileinput-new">画像ファイルを選択してください</span>
+							 <input type="file"
+							name="fileName" />
+						</span>
+					</div>
 				</div>
-				<div class="form-group col s6">
-					<label>アイテムカテゴリID</label>
-					<select data-style="select-with-transition btn-primary btn-round"
+				<div class=" select form-group col s6">
+					<label>アイテムカテゴリID</label> <select
+						data-style="select-with-transition btn-primary btn-round"
 						title="カテゴリー選択" data-size="7" name="itemCategoryId">
-						<option value="1" >ビール</option>
+						<option value="1">ビール</option>
 						<option value="2">ウィスキー</option>
 						<option value="3">焼酎・日本酒</option>
 						<option value="4">ワイン</option>
@@ -77,36 +85,17 @@
 	<br>
 	<br>
 	<br>
-	<div align="center" >
+	<div align="center">
 		<a href="Masterlist">
 			<button type="button" class="btn btn-danger">機能一覧へ</button>
 		</a><a href="Logout">
 			<button type="button" class="btn btn-default">ログアウト</button>
 		</a>
 	</div>
-
-
-
 	<footer class="footer" data-background-color="black">
 		<div class=" container ">
 			<div>Made by Toshiki Munakata.</div>
 		</div>
 	</footer>
-	<!--   Core JS Files   -->
-	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-	<script src="assets/js/plugins/bootstrap-switch.js"></script>
-	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="assets/js/plugins/nouislider.min.js"
-		type="text/javascript"></script>
-	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-	<script src="../assets/js/plugins/bootstrap-datepicker.js"
-		type="text/javascript"></script>
-	<!--  Google Maps Plugin    -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-	<script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
 </body>
 </html>

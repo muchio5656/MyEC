@@ -15,64 +15,46 @@
 <!-- CSS Files -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
-  </head>
-  <body>
-
-   <div class="section section-signup" style="background-image: url('assets/img/102.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
-        <div class="container">
-          <div class="row">
-            <div class="card card-signup" data-background-color="black">
-              <form class="form" method="post" action="MasterLogin">
-                <div class="card-header text-center">
-                  <h3 class="card-title title-up">管理者ログイン</h3>
-
-                </div>
-                <div class="card-body">
-                  <div class="input-group no-border">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" name="mailAddress" placeholder="メールアドレス">
-                  </div>
-                  <div class="input-group no-border">
-
-                  </div>
-                  <div class="input-group no-border">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" name="password" placeholder="パスワード">
-                  </div>
-
-                </div>
-                <div class="card-footer text-center">
-                  <button class="btn  btn-round btn-lg">Go</button>
-                </div>
-              </form>
-            </div>
-          </div>
-          </div>
-          </div>
-           <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
+</head>
+<body>
+	<div class="section section-signup"
+		style="background-image: url('assets/img/102.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
+		<div class="container">
+			<div class="row">
+				<div class="card card-signup" data-background-color="black">
+					<form class="form" method="post" action="MasterLogin">
+						<div class="card-header text-center">
+							<h3 class="card-title title-up">管理者ログイン</h3>
+						</div>
+						<div class="card-body">
+							<div class="input-group no-border">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> </span>
+								</div>
+								<input type="text" class="form-control" name="mailAddress"
+									placeholder="メールアドレス">
+							</div>
+							<div class="input-group no-border"></div>
+							<div class="input-group no-border">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> </span>
+								</div>
+								<input type="text" class="form-control" name="password"
+									placeholder="パスワード">
+							</div>
+						</div>
+						<div class="card-footer text-center">
+							<button class="btn  btn-round btn-lg">Go</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+</body>
 </html>

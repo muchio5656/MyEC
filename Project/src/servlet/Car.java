@@ -43,12 +43,11 @@ public class Car extends HttpServlet {
 				session.setAttribute("cart", cart);
 
 			}
-			String cartActionMessage = "";
 
 			if(cart.size() == 0) {
-				cartActionMessage = "※カートに商品がありません※";
+				String cartActionMessage = "※カートに商品がありません※";
+				request.setAttribute("cartActionMessage", cartActionMessage);
 			}
-			request.setAttribute("cartActionMessage", cartActionMessage);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/car.jsp");
 			dispatcher.forward(request, response);
@@ -82,6 +81,13 @@ public class Car extends HttpServlet {
 					}
 				}
 			}
+
+			if(cart.size() == 0) {
+				String cartActionMessage = "※カートに商品がありません※";
+				request.setAttribute("cartActionMessage", cartActionMessage);
+			}
+
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/car.jsp");
 			dispatcher.forward(request, response);
 

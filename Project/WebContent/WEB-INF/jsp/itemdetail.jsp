@@ -17,8 +17,7 @@
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg bg-primary ">
+	<nav class="navbar navbar-expand-lg bg-primary ">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ"
@@ -71,49 +70,33 @@
 								name="search_word">
 						</form>
 				</ul>
+				<li class="nav-item"><a class="nav-link btn warning" href="Car">
+						<p>カートへ</p>
+				</a></li>
 			</div>
 		</div>
 	</nav>
-
-     <div class="container">
-            <div class="alert alert-primary" role="alert">
-  商品詳細
-            </div><br><br>
-
-    <div class="card mb-4">
-  <img class="card-img-top" src="assets/img/${item.fileName}" alt="Card image cap">
-  <div class="card-body">
-    <h1 class="card-title">${item.name}</h1>
-    <p class="card-text">${item.detail}</p>
-
-      <div align="right"><h2>${item.price}円</h2>
-      <a href="ItemAdd?id=${item.id}" class="btn btn-primary btn-lg">カートに入れる</a></div>
-  </div>
-</div>
-        </div>
-
-
-
-
-
-      <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
+	<div class="container">
+		<div class="alert alert-primary" role="alert">商品詳細</div>
+		<br>
+		<br>
+		<div class="card mb-4">
+			<img class="card-img-top" src="assets/img/${item.fileName}"
+				alt="Card image cap">
+			<div class="card-body">
+				<h1 class="card-title">${item.name}</h1>
+				<p class="card-text">${item.detail}</p>
+				<div align="right">
+					<h2>${item.price}円</h2>
+					<a href="ItemAdd?id=${item.id}" class="btn btn-primary btn-lg">カートに入れる</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+</body>
 </html>

@@ -52,6 +52,8 @@ public class InsertConfirm extends HttpServlet {
 				String password = request.getParameter("password");
 
 				UserDAO user =new UserDAO();
+				//パスワードを暗号化
+				password = user.angoka(password);
 
 
 				// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行

@@ -65,12 +65,15 @@
 								<p>Log out</p>
 						</a></li>
 					</c:if>
-
 					<li class="nav-item">
 						<form action="Search">
 							<input class="form-control" type="text" placeholder="キーワードで探す"
 								name="search_word">
 						</form>
+					<li class="nav-item"><a class="nav-link btn warning"
+						href="Car">
+							<p>カートへ</p>
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -82,12 +85,15 @@
 				<div align="center" class="alert alert-danger" role="alert">
 					${errMsg}</div>
 			</c:if>
+			<c:if test="${loginMessage != null}">
+				<div align="center" class="alert alert-danger" role="alert">
+					${loginMessage}</div>
+			</c:if>
 			<div class="row">
 				<div class="card card-signup" data-background-color="black">
 					<form class="form" method="post" action="Login">
 						<div class="card-header text-center">
 							<h3 class="card-title title-up">Login</h3>
-
 						</div>
 						<div class="card-body">
 							<div class="input-group no-border">
@@ -105,7 +111,6 @@
 								<input type="password" name="password" class="form-control"
 									placeholder="パスワード">
 							</div>
-
 						</div>
 						<div class="card-footer text-center">
 							<button type="submit" class="btn  btn-round btn-lg">ログイン</button>
@@ -115,16 +120,8 @@
 			</div>
 			<div class="col text-center">
 				<a href="UserInsert" class="btn  btn-round btn-white btn-lg">新規登録</a>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br> <a href="MasterLogin"
+				<br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <a href="MasterLogin"
 					class="btn  btn-round btn-white btn-lg">管理者ページへ</a>
 			</div>
 		</div>
@@ -135,21 +132,5 @@
 			<div>Made by Toshiki Munakata.</div>
 		</div>
 	</footer>
-	<!--   Core JS Files   -->
-	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-	<script src="assets/js/plugins/bootstrap-switch.js"></script>
-	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="assets/js/plugins/nouislider.min.js"
-		type="text/javascript"></script>
-	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-	<script src="../assets/js/plugins/bootstrap-datepicker.js"
-		type="text/javascript"></script>
-	<!--  Google Maps Plugin    -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-	<script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
 </body>
 </html>

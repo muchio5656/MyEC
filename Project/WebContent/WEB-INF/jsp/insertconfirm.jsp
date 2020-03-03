@@ -17,8 +17,7 @@
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg bg-primary ">
+	<nav class="navbar navbar-expand-lg bg-primary ">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ"
@@ -48,65 +47,91 @@
 								class="dropdown-item" href="category.html">ワイン</a> <a
 								class="dropdown-item" href="category.html">その他お酒</a>
 						</div></li>
-						<c:if test="${userInfo.name!= null}">
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="UserData?id=${userInfo.id}">
-							<p>${userInfo.name}さん</p>
-					</a></li></c:if>
+					<c:if test="${userInfo==null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Login">
+								<p>Login</p>
+						</a></li>
+					</c:if>
+					<c:if test="${userInfo!= null}">
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="UserData?id=${userInfo.id}">
+								<p>${userInfo.name}さん</p>
+						</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-black"
+							href="Logout">
+								<p>Log out</p>
+						</a></li>
+					</c:if>
 
-
-					<li class="nav-item"><a class="nav-link btn btn-black"
-						href="Logout">
-							<p>Log out</p>
-					</a></li>
-					<form action="Search" method="post">
-						<li class="nav-item"><input class="form-control" type="text"
-							name="search" placeholder="キーワードで探す"></li>
-					</form>
-				</ul>
+					<li class="nav-item">
+						<form action="Search">
+							<input class="form-control" type="text" placeholder="キーワードで探す"
+								name="search_word">
+						</form>
+				<li class="nav-item"><a class="nav-link btn warning" href="Car">
+						<p>カートへ</p>
+				</a></li>
+					</ul>
 			</div>
 		</div>
-	</nav><br><br><br>
+	</nav>
+	<br>
+	<br>
+	<br>
 
-      <div class="container">
-       <div align="center" class="alert alert-primary" role="alert">
-  入力内容確認
-            </div>
-      <form action="InsertConfirm" method="post"><br><br>
-               <div class="row">
-  <div class="form-group col s6">
-    <label>Eメールアドレス</label>
-    <input class="form-control" name="mailAddress" value="${user.mailAddress}" readonly>
-  </div>
-          <div class="form-group col s6">
-    <label>名前</label>
-    <input type="text" class="form-control" name="name" value="${user.name}" readonly>
-  </div>
-          </div><br>
-          <div class="row">
-              <div class="form-group col s6">
-    <label for="exampleInputPassword1">住所</label>
-    <input type="text" class="form-control" name="address" value="${user.address}" readonly>
-                   </div> <div class="form-group col s6">
-    <label for="exampleInputPassword1">生年月日</label>
-    <input  class="form-control" name="birthDate" value="${StringBirthDate}" readonly>
-    <input type="hidden" name="password" value="${user.password}">
-                   </div></div><br><br>
-          <div align="center">上記内容で登録してよろしいでしょうか？？</div>
-<div align="center" class="row">
-		<div class="input-field col s6">
-      <a href="UserInsert">
-      <button type="button" class="btn btn-default">修正</button>
-            </a>
-<button type="submit" class="btn btn-primary">登録</button>
+	<div class="container">
+		<div align="center" class="alert alert-primary" role="alert">
+			入力内容確認</div>
+		<form action="InsertConfirm" method="post">
+			<br>
+			<br>
+			<div class="row">
+				<div class="form-group col s6">
+					<label>Eメールアドレス</label> <input class="form-control"
+						name="mailAddress" value="${user.mailAddress}" readonly>
+				</div>
+				<div class="form-group col s6">
+					<label>名前</label> <input type="text" class="form-control"
+						name="name" value="${user.name}" readonly>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="form-group col s6">
+					<label for="exampleInputPassword1">住所</label> <input type="text"
+						class="form-control" name="address" value="${user.address}"
+						readonly>
+				</div>
+				<div class="form-group col s6">
+					<label for="exampleInputPassword1">生年月日</label> <input
+						class="form-control" name="birthDate" value="${StringBirthDate}"
+						readonly> <input type="hidden" name="password"
+						value="${user.password}">
+				</div>
+			</div>
+			<br>
+			<br>
+			<div align="center">上記内容で登録してよろしいでしょうか？？</div>
+			<div align="center" class="row">
+				<div class="input-field col s6">
+					<a href="UserInsert">
+						<button type="button" class="btn btn-default">修正</button>
+					</a>
+					<button type="submit" class="btn btn-primary">登録</button>
 
-          </div>
-    </div></form>
-      <br><br><br><br><br>
+				</div>
+			</div>
+		</form>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
 
 
-      </div>
+	</div>
 
 
 
@@ -117,24 +142,26 @@
 
 
 
-     <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+	<!--   Core JS Files   -->
+	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+	<script src="assets/js/plugins/bootstrap-switch.js"></script>
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="assets/js/plugins/nouislider.min.js"
+		type="text/javascript"></script>
+	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+	<script src="../assets/js/plugins/bootstrap-datepicker.js"
+		type="text/javascript"></script>
+	<!--  Google Maps Plugin    -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+	<script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+</body>
 </html>

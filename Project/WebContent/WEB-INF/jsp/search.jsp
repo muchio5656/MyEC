@@ -18,8 +18,7 @@
 <link href="./assets/demo/list.css" rel="stylesheet" />
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg bg-primary ">
+	<nav class="navbar navbar-expand-lg bg-primary ">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ"
@@ -65,87 +64,47 @@
 								<p>Log out</p>
 						</a></li>
 					</c:if>
-
 					<li class="nav-item">
 						<form action="Search">
 							<input class="form-control" type="text" placeholder="キーワードで探す"
 								name="search_word">
 						</form>
+					<li class="nav-item"><a class="nav-link btn warning"
+						href="Car">
+							<p>カートへ</p>
+					</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-      <div class="container">
-        <div class="title">
-      <div class="alert alert-primary" role="alert">
-  <h1>検索結果</h1>
-        <!--   <h5>５件ヒットしました</h5> -->
-            </div></div><br><br>
-            <c:forEach var="item" items="${searchltItemList}">
-      <div class="card" style="width: 20rem; margin: 22px">
-          <a href="ItemDetail?id=${item.id}">
-  <img class="card-img-top" src="assets/img/${item.fileName}" >
-          </a>
-  <div class="card-body">
-      <a href="ItemDitail?=${item.id}">
-    <h4 class="card-title">${item.name}</h4>
-      </a>
-    <p class="card-text">${item.detail}</p>
-      <p>${item.formatPrice}円</p>
-    <a href="ItemAdd?id=${item.id}" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div>
-</c:forEach>
-</div>
-<!--
+	<div class="container">
+		<div class="title">
+			<div class="alert alert-primary" role="alert">検索結果</div>
+		</div>
+		<br> <br>
+		<c:forEach var="item" items="${searchltItemList}">
+			<div class="card" style="width: 20rem; margin: 22px">
+				<a href="ItemDetail?id=${item.id}"> <img class="card-img-top"
+					src="assets/img/${item.fileName}">
+				</a>
+				<div class="card-body">
+					<a href="ItemDitail?=${item.id}">
+						<h4 class="card-title">${item.name}</h4>
+					</a>
+					<p class="card-text">${item.detail}</p>
+					<p>${item.formatPrice}円</p>
+					<a href="ItemAdd?id=${item.id}" class="btn btn-primary">カートに入れる</a>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
 
-
-      	<div style=" margin-left:850px;">
-      <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#link" aria-label="Previous">
-                    <span aria-hidden="true"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#link">1</a>
-                </li>
-                <li class="page-item active">
-                  <a class="page-link" href="#link">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#link">3</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#link" aria-label="Next">
-                    <span aria-hidden="true"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
-                  </a>
-                </li>
-              </ul>
-      </div> -->
-      <br><br>
-
-
-
-
-
-
-      <footer class="footer" data-background-color="black">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
+	<br>
+	<br>
+	<footer class="footer" data-background-color="black">
+		<div class="container">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+</body>
 </html>

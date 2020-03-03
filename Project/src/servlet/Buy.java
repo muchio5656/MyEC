@@ -42,8 +42,12 @@ public class Buy extends HttpServlet {
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
 			Object login = session.getAttribute("userInfo");
 
+			String loginMessage = "";
 			if (login == null) {
 				// セッションにログイン情報がない場合Login画面にリダイレクト
+				loginMessage = "ログインしてください";
+				request.setAttribute("loginMessage", loginMessage);
+
 				response.sendRedirect("Login");
 			} else {
 				// 配送方法をDBから取得

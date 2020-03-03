@@ -48,6 +48,8 @@ public class MasterLogin extends HttpServlet {
 		String password = request.getParameter("password");
 
 		UserDAO user =new UserDAO();
+		//パスワードを暗号化
+		password = user.angoka(password);
 
 		UserDataBeans master = user.masterKey(mailAddress, password);
 

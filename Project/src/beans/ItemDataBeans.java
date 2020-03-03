@@ -47,6 +47,8 @@ public class ItemDataBeans implements Serializable {
 		this.itemCategoryId=itemCategoryId2;
 	}
 
+
+
 	public int getId() {
 		return id;
 	}

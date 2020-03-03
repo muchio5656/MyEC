@@ -17,8 +17,7 @@
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg bg-primary ">
+	<nav class="navbar navbar-expand-lg bg-primary ">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ"
@@ -70,78 +69,55 @@
 							<input class="form-control" type="text" placeholder="キーワードで探す"
 								name="search_word">
 						</form>
+					<li class="nav-item"><a class="nav-link btn warning"
+						href="Car">
+							<p>カートへ</p>
+					</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
-
-
-
-       <div class="container">
-       <div align="center" class="alert alert-primary" role="alert">
-  購入を確定してもよろしいですか？？
-            </div>
-    <div align="center">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>商品名</th>
-                    <th>単価</th>
-                    <th>小計</th>
-                </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="cartInItem" items="${cart}" >
-                <tr>
-                    <td>${cartInItem.name}</td>
-                    <th>${cartInItem.price}円</th>
-                    <th>${cartInItem.price}円</th>
-                </tr>
-                </c:forEach>
-                <tr>
-                    <td>${bdb.deliveryMethodName}</td>
-                    <th></th>
-                    <th>${bdb.deliveryMethodPrice}円</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <th>合計</th>
-                    <th>${bdb.formatTotalPrice}円</th>
-                </tr>
-              <!--   <tr>
-                <td></td>
-                    <th>お届け日</th>
-                    <th>2020-02-02</th>
-                </tr> -->
-            </tbody>
-            </table>
-             <form action="ThankYou" method="post">
-        <button class="btn btn-primary">購入確定</button>
-           </form>
-               </div></div>
-
-
-
-
-    <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
+	<div class="container">
+		<div align="center" class="alert alert-primary" role="alert">
+			購入を確定してもよろしいですか？？</div>
+		<div align="center">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>商品名</th>
+						<th>単価</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="cartInItem" items="${cart}">
+						<tr>
+							<td>${cartInItem.name}</td>
+							<th>${cartInItem.price}円</th>
+							<th>${cartInItem.price}円</th>
+						</tr>
+					</c:forEach>
+					<tr>
+						<td>${bdb.deliveryMethodName}</td>
+						<th></th>
+						<th>${bdb.deliveryMethodPrice}円</th>
+					</tr>
+					<tr>
+						<td></td>
+						<th>合計</th>
+						<th>${bdb.formatTotalPrice}円</th>
+					</tr>
+				</tbody>
+			</table>
+			<form action="ThankYou" method="post">
+				<button class="btn btn-primary">購入確定</button>
+			</form>
+		</div>
+	</div>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+</body>
 </html>

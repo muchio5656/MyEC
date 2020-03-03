@@ -49,6 +49,8 @@ public class Login extends HttpServlet {
 			String password = request.getParameter("password");
 
 			UserDAO userDao = new UserDAO();
+			//パスワードを暗号化
+			password = userDao.angoka(password);
 
 			// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
 			UserDataBeans user = userDao.findByLoginInfo(mailAddress, password);

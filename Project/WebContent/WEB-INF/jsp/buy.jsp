@@ -5,7 +5,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<title>ログインページ</title>
+<title>配送方法確認</title>
 <!--     Fonts and icons     -->
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
@@ -63,26 +63,24 @@
 								<p>Log out</p>
 						</a></li>
 					</c:if>
-
 					<li class="nav-item">
 						<form action="Search">
 							<input class="form-control" type="text" placeholder="キーワードで探す"
 								name="search_word">
 						</form>
-				</ul>
+				<li class="nav-item"><a class="nav-link btn warning" href="Car">
+						<p>カートへ</p>
+				</a></li>
+								</ul>
 			</div>
 		</div>
 	</nav>
-
-
-
-
 	<div class="container">
 		<div align="center" class="alert alert-primary" role="alert">配送方法を決めてください
 		</div>
 		<form action="BuyConfirm" method="post">
 
-			<div align="center" >
+			<div align="center">
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -113,13 +111,6 @@
 									</select>
 								</div></th>
 						</tr>
-						<!-- <tr>
-							<th></th>
-							<td></td>
-							<th>指定お届け日</th>
-							<th><input type="date" class="form-control"
-								name="deliveryDate"></th>
-						</tr> -->
 					</tbody>
 				</table>
 				<button class="btn btn-primary">確認画面へ</button>
@@ -132,22 +123,6 @@
 			<div>Made by Toshiki Munakata.</div>
 		</div>
 	</footer>
-	<!--   Core JS Files   -->
-	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-	<script src="assets/js/plugins/bootstrap-switch.js"></script>
-	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="assets/js/plugins/nouislider.min.js"
-		type="text/javascript"></script>
-	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-	<script src="../assets/js/plugins/bootstrap-datepicker.js"
-		type="text/javascript"></script>
-	<!--  Google Maps Plugin    -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-	<script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
 </body>
 </html>
 </html>

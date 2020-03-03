@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.FoodDataBeans;
+import beans.ItemDataBeans;
 import beans.TriviaDataBeans;
 import dao.FoodDAO;
+import dao.ItemDAO;
 import dao.TriviaDAO;
 
 /**
@@ -39,7 +41,11 @@ public class Top extends HttpServlet {
 
 		Random rand = new Random();
 		int triviaNum = rand.nextInt(10) + 1;
-		int foodNum = rand.nextInt(1) + 1;
+		int foodNum = rand.nextInt(3) + 1;
+
+		ItemDAO itemDao = new ItemDAO();
+		List<ItemDataBeans> itemRanking = itemDao.ranking();
+
 
 		FoodDAO foodDao = new FoodDAO();
 		List<FoodDataBeans> food = foodDao.bestMuch(foodNum);
@@ -47,7 +53,8 @@ public class Top extends HttpServlet {
 		TriviaDAO dao = new TriviaDAO();
 		TriviaDataBeans trivia = dao.trivia(triviaNum);
 
-		// リクエストスコープにユーザ一覧情報をセット
+		// リクエストスコープにユーザ一覧情報2をセット
+		request.setAttribute("itemRanking", itemRanking);
 		request.setAttribute("food", food);
 		request.setAttribute("trivia", trivia);
 

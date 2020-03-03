@@ -1,5 +1,5 @@
-insert into trivia (name,detail,item_category_id)
- values('','',)
+insert into food (name,detail,file_name)
+ values('','','')
 
 /* 
 1:ビール

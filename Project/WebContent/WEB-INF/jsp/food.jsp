@@ -15,10 +15,10 @@
 <!-- CSS Files -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+<link href="./assets/demo/list2.css" rel="stylesheet" />
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg bg-primary ">
+	<nav class="navbar navbar-expand-lg bg-primary ">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="Top" rel="tooltip" title="Topページへ"
@@ -70,79 +70,66 @@
 							<input class="form-control" type="text" placeholder="キーワードで探す"
 								name="search_word">
 						</form>
-				</ul>
+				<li class="nav-item"><a class="nav-link btn warning" href="Car">
+						<p>カートへ</p>
+				</a></li>
+					</ul>
 			</div>
 		</div>
 	</nav>
-      <div class="container">
-        <div class="title">
-      <div class="alert alert-primary" role="alert">
-  <h1>このおつまみに合う商品のご紹介</h1>
-            </div></div><br><br>
-            <c:forEach begin="0" end="0" var="f" items="${food}">
-          <div class="card mb-4">
-  <img class="card-img-top" src="assets/img/${f.foodFile}" alt="Card image cap">
-  <div class="card-body">
-    <h4 class="card-title">${f.foodName}</h4>
-    <p class="card-text">${f.detail}</p>
-  </div>
-</div>
-</c:forEach>
-            <c:forEach var="f" items="${food}">
-      <div class="card" style="width: 20rem; margin: 22px">
-          <a href="ItemDetail?id=${f.itemId}">
-  <img class="card-img-top" src="assets/img/${f.itemFile}" alt="Top1">
-          </a>
-  <div class="card-body">
-      <a href="ItemDetail?id=${f.itemId}">
-    <h4 class="card-title">${f.itemName}</h4>
-      </a>
-    <p class="card-text">${f.itemDetail}</p>
-      <p>${f.price}円</p>
-    <a href="ItemAdd?id=${f.itemId}" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div>
-</c:forEach>
-  <!--         <div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1001.jpg" alt="Top2">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-    <a href="car.html" class="btn btn-primary">カートに入れる</a>
-  </div>
-</div>
-          <div class="card" style="width: 20rem; margin: 22px">
-  <img class="card-img-top" src="assets/img/1002.jpg" alt="Top3">
-  <div class="card-body">
-    <h4 class="card-title">アイテム名</h4>
-    <p class="card-text">アイテム詳細 example text to build on the card title and make up the bulk of the card's content.</p>
-       <p>○○○円</p>
-    <a href="car.html" class="btn btn-primary">カートに入れる</a>
-  </div> -->
-</div>
-
-
-        </div>
-
- <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="assets/js/plugins/bootstrap-switch.js"></script>
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-  </body>
+	<div class="container">
+		<div class="title">
+			<div class="alert alert-primary" role="alert">
+				<h1>このおつまみに合う商品のご紹介</h1>
+			</div>
+		</div>
+		<br> <br>
+		<c:forEach begin="0" end="0" var="f" items="${food}">
+			<div class="card mb-4">
+				<img class="card-img-top" src="assets/img/${f.foodFile}"
+					alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title">${f.foodName}</h4>
+					<p class="card-text">${f.detail}</p>
+				</div>
+			</div>
+		</c:forEach>
+		<c:forEach var="f" items="${food}">
+			<div class="card" style="width: 20rem; margin: 22px">
+				<a href="ItemDetail?id=${f.itemId}"> <img class="card_img_top"
+					src="assets/img/${f.itemFile}">
+				</a>
+				<div class="card-body">
+					<a href="ItemDetail?id=${f.itemId}">
+						<h4 class="card_title">${f.itemName}</h4>
+					</a>
+					<p class="card_text">${f.itemDetail}</p>
+					<p>${f.price}円</p>
+					<a href="ItemAdd?id=${f.itemId}" class="btn btn-primary">カートに入れる</a>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+	<!--   Core JS Files   -->
+	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+	<script src="assets/js/plugins/bootstrap-switch.js"></script>
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="assets/js/plugins/nouislider.min.js"
+		type="text/javascript"></script>
+	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+	<script src="../assets/js/plugins/bootstrap-datepicker.js"
+		type="text/javascript"></script>
+	<!--  Google Maps Plugin    -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+	<script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+</body>
 </html>

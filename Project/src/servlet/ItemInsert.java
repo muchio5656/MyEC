@@ -69,12 +69,8 @@ public class ItemInsert extends HttpServlet {
 		}
 
 		item.itemInsert(name, price, fName, detail, itemCategoryId);
-		//
-		//		ItemDataBeans Item = new ItemDataBeans(name, price2, fileName, detail,itemCategoryId2);
-		//
-		//		request.setAttribute("item", Item);
 
-		response.sendRedirect("Masterlist");
+		response.sendRedirect("ItemInsert");
 
 	}
 

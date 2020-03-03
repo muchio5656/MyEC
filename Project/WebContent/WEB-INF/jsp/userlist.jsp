@@ -15,13 +15,12 @@
 <!-- CSS Files -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+<link href="./assets/demo/list.css" rel="stylesheet" />
 </head>
-
 <body>
 	<div class="alert alert-danger" role="alert">
 		<h1>ユーザリスト</h1>
 	</div>
-
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -34,22 +33,23 @@
 				<th></th>
 			</tr>
 		</thead>
-<tbody>
-<c:forEach var="user" items="${userList}">
-<tr>
-			<td>${user.id}</td>
-			<td>${user.name}</td>
-			<td>${user.mailAddress}</td>
-			<td>${user.address}</td>
-			<td>${user.birthDate}</td>
-			<td>${user.createDate}</td>
-			<td><a href="UserDelete?id=${user.id}">
-			<button type="button" class="btn btn-default">削除</button>
-				</a></td>
-				</tr></c:forEach>
+		<tbody>
+			<c:forEach var="user" items="${userList}">
+				<tr>
+					<td>${user.id}</td>
+					<td>${user.name}</td>
+					<td>${user.mailAddress}</td>
+					<td>${user.address}</td>
+					<td>${user.birthDate}</td>
+					<td>${user.createDate}</td>
+					<td><a href="UserDelete?id=${user.id}">
+							<button type="button" class="btn btn-default">削除</button>
+					</a></td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
-	<div align="center" >
+	<div align="center">
 		<a href="Masterlist">
 			<button type="button" class="btn btn-danger">機能一覧へ</button>
 		</a><a href="Logout">
@@ -64,21 +64,5 @@
 			<div>Made by Toshiki Munakata.</div>
 		</div>
 	</footer>
-	<!--   Core JS Files   -->
-	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-	<script src="assets/js/plugins/bootstrap-switch.js"></script>
-	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="assets/js/plugins/nouislider.min.js"
-		type="text/javascript"></script>
-	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-	<script src="../assets/js/plugins/bootstrap-datepicker.js"
-		type="text/javascript"></script>
-	<!--  Google Maps Plugin    -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-	<script src="assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
 </body>
 </html>

@@ -13,9 +13,26 @@
 }
 
 .card-img-top {
-	height: 450px;
+	height: 350px;
 }
 
 .table td{
 	vertical-align: middle;
+	font-size:15px;
+	font-weight:500;
+}
+.alert-primary{
+	font-size:35px;
+	font-weight:600;
+	padding-top: 20px;
+}
+.select{
+	align:center;
+	padding-top: 30px;
+}
+.btn-file{
+		margin-left:70px;
+}
+.tanka{
+	margin-top:12px;
 }
