@@ -20,39 +20,19 @@ import dao.FoodDAO;
 public class Food extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Food() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		String foodId = request.getParameter("foodId");
-
 		int foodNum = Integer.parseInt(foodId);
-
 		FoodDAO foodDao = new FoodDAO();
+		//foodIdを元にベストマッチ商品リストを取得
 		List<FoodDataBeans> food = foodDao.bestMuch(foodNum);
 
 		// リクエストスコープにユーザ一覧情報をセット
-				request.setAttribute("food", food);
+		request.setAttribute("food", food);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/food.jsp");
 		dispatcher.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

@@ -23,43 +23,31 @@ import dao.BuyDetailDAO;
 public class UserBuyHistoryData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserBuyHistoryData() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		// URLからGETパラメータとしてIDを受け取る
-				String id = request.getParameter("buy_id");
-				int i = Integer.parseInt(id);
+		// URLからGETパラメータとしてbuy_idを受け取る
+		String id = request.getParameter("buy_id");
+		int i = Integer.parseInt(id);
 
-				BuyDataBeans use = null;
-				try {
-					use = BuyDAO.getBuyDataBeansByBuyId(i);
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-				//リクエストスコープに結果をセット
-				request.setAttribute("use", use);
-				ArrayList<ItemDataBeans> itemDetail = null;
-				try {
-					itemDetail = BuyDetailDAO.getItemDataBeansListByBuyId(i);
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				request.setAttribute("itemDetail", itemDetail);
-
-
+		BuyDataBeans use = null;
+		try {
+			use = BuyDAO.getBuyDataBeansByBuyId(i);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		//リクエストスコープに結果をセット
+		request.setAttribute("use", use);
+		ArrayList<ItemDataBeans> itemDetail = null;
+		try {
+			itemDetail = BuyDetailDAO.getItemDataBeansListByBuyId(i);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("itemDetail", itemDetail);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userbuyhistorydata.jsp");
 		dispatcher.forward(request, response);
-	}}
-
+	}
+}

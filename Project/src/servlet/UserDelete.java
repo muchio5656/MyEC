@@ -19,17 +19,6 @@ import dao.UserDAO;
 public class UserDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserDelete() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
@@ -48,9 +37,6 @@ public class UserDelete extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// URLからGETパラメータとしてIDを受け取る
@@ -63,7 +49,5 @@ public class UserDelete extends HttpServlet {
 
 		//ユーザ情報を削除しユーザ一覧へリダイレクト
 		response.sendRedirect("UserList");
-
 	}
-
 }

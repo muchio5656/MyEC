@@ -5,7 +5,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<title>検索結果</title>
+<title>検索結果　　「${searchWord}」</title>
 <!--     Fonts and icons     -->
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
@@ -106,5 +106,10 @@
 			<div>Made by Toshiki Munakata.</div>
 		</div>
 	</footer>
+ <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+	<script src="./assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
 </body>
 </html>

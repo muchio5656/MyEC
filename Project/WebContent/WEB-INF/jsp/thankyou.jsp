@@ -72,32 +72,36 @@
 							<input class="form-control" type="text" placeholder="キーワードで探す"
 								name="search_word">
 						</form>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="section section-signup" style="background-image: url('assets/img/202.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
-        <div class="container">
-          <div class="row">
-            <div class="card card-signup" data-background-color="black">
-                <div class="card-header text-center">
-                  <h1 class="card-title title-up">Thank you</h1>
-                </div>
-                <div align="center">ご購入ありがとうございます。</div>
-                <div class="card-footer text-center">
-                  <a href="Top" class="btn btn-round btn-lg">TOPページへ</a>
-                </div>
-            </div>
-          </div>
-          <div class="col text-center">
-          </div>
-        </div>
-      </div>
- <footer class="footer" data-background-color="black">
-      <div class=" container ">
-      <div >Made by Toshiki Munakata.
-      </div>
-      </div>
-      </footer>
-  </body>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="section section-signup"
+		style="background-image: url('assets/img/R0023034.jpg'); background-size: cover; background-position: top center; min-height: 1000px;">
+		<div class="container">
+			<div class="row">
+				<div class="card card-signup" data-background-color="black">
+					<div class="card-header text-center">
+						<h1 class="card-title title-up">Thank you</h1>
+					</div>
+					<div align="center">ご購入ありがとうございます。</div>
+					<div class="card-footer text-center">
+						<a href="Top" class="btn btn-round btn-lg">TOPページへ</a>
+					</div>
+				</div>
+			</div>
+			<div class="col text-center"></div>
+		</div>
+	</div>
+	<footer class="footer" data-background-color="black">
+		<div class=" container ">
+			<div>Made by Toshiki Munakata.</div>
+		</div>
+	</footer>
+	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+	<script src="./assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+</body>
 </html>

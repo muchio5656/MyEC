@@ -19,15 +19,6 @@ import dao.ItemDAO;
 public class ItemDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-
-
-	    // TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -36,7 +27,7 @@ public class ItemDetail extends HttpServlet {
 		// 確認用：idをコンソールに出力
 		System.out.println(id);
 
-		//カテゴリ別アイテム一覧を取得
+		//アイテム詳細を取得しセッッと
 		ItemDAO itemDao = new ItemDAO();
 		ItemDataBeans item = itemDao.itemDetail(id);
 
@@ -44,15 +35,6 @@ public class ItemDetail extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/itemdetail.jsp");
 		dispatcher.forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

@@ -22,17 +22,6 @@ import dao.ItemDAO;
 public class ItemUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ItemUpdate() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -41,7 +30,7 @@ public class ItemUpdate extends HttpServlet {
 		// 確認用：idをコンソールに出力
 		System.out.println(id);
 
-		// idを引数にして、idに紐づくユーザ情報を出力する
+		// idを引数にして、idに紐づくアイテム情報を出力する
 		ItemDAO itemDao = new ItemDAO();
 		ItemDataBeans item = itemDao.itemDetail(id);
 

@@ -21,17 +21,6 @@ import dao.ItemDAO;
 public class ItemInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ItemInsert() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -44,11 +33,8 @@ public class ItemInsert extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setCharacterEncoding("UTF-8");
-
 		// リクエストパラメータの入力項目を取得
-
 		String name = request.getParameter("name");
 		String price = request.getParameter("price");
 		Part fileName = request.getPart("fileName");
@@ -57,6 +43,7 @@ public class ItemInsert extends HttpServlet {
 
 		ItemDAO item = new ItemDAO();
 
+		//画像ファイル取り込みよう記述
 		String fName = item.getFileName(fileName);
 		fileName.write(fName);
 
@@ -67,11 +54,7 @@ public class ItemInsert extends HttpServlet {
 			dispatcher.forward(request, response);
 			return;
 		}
-
 		item.itemInsert(name, price, fName, detail, itemCategoryId);
-
 		response.sendRedirect("ItemInsert");
-
 	}
-
 }

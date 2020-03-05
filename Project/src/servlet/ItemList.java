@@ -20,20 +20,8 @@ import dao.ItemDAO;
 public class ItemList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ItemList() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		//アイテム一覧を取得
 		ItemDAO itemDao = new ItemDAO();
 		List<ItemDataBeans> itemData = itemDao.findAllItem();

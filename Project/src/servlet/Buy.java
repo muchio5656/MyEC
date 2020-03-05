@@ -35,19 +35,16 @@ public class Buy extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// セッション
+		// セッション接続
 		HttpSession session = request.getSession();
 		try {
-
 			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
 			Object login = session.getAttribute("userInfo");
 
-			String loginMessage = "";
 			if (login == null) {
 				// セッションにログイン情報がない場合Login画面にリダイレクト
-				loginMessage = "ログインしてください";
+				String loginMessage = "ログインしてください";
 				request.setAttribute("loginMessage", loginMessage);
-
 				response.sendRedirect("Login");
 			} else {
 				// 配送方法をDBから取得
@@ -59,17 +56,7 @@ public class Buy extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.setAttribute("errorMessage", e.toString());
-			response.sendRedirect("Error");
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

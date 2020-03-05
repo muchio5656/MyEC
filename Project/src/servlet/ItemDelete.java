@@ -19,19 +19,8 @@ import dao.ItemDAO;
 public class ItemDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ItemDelete() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		// URLからGETパラメータとしてIDを受け取る
 		String id = request.getParameter("id");
@@ -51,17 +40,18 @@ public class ItemDelete extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// URLからGETパラメータとしてIDを受け取る
-				String id = request.getParameter("id");
-				// 確認用：idをコンソールに出力
-				System.out.println(id);
+		String id = request.getParameter("id");
+		// 確認用：idをコンソールに出力
+		System.out.println(id);
 
-				ItemDAO ItemDao = new ItemDAO();
-				ItemDao.itemDelete(id);
+		ItemDAO ItemDao = new ItemDAO();
+		ItemDao.itemDelete(id);
 
-				//ユーザ情報を削除しユーザ一覧へリダイレクト
-				response.sendRedirect("ItemList");
+		//ユーザ情報を削除しユーザ一覧へリダイレクト
+		response.sendRedirect("ItemList");
 
 	}
 

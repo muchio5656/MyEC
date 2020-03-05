@@ -21,38 +21,20 @@ import dao.ItemDAO;
 public class Search extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Search() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 
 		String searchWord = request.getParameter("search_word");
-		// 新たに検索されたキーワードをセッションに格納する
-		session.setAttribute("searchWord", searchWord);
+		// 新たに検索されたキーワードをセット
+		request.setAttribute("searchWord", searchWord);
 
+		//検索ワードを元にアイテムリストを取得
 		List<ItemDataBeans> searchltItemList = ItemDAO.wordSearch(searchWord);
 		request.setAttribute("searchltItemList", searchltItemList);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search.jsp");
 		dispatcher.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

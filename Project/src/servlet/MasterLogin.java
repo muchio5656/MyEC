@@ -20,18 +20,8 @@ import dao.UserDAO;
 public class MasterLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public MasterLogin() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/masterlogin.jsp");
 		dispatcher.forward(request, response);
@@ -39,7 +29,6 @@ public class MasterLogin extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		//文字化け防止処理
 		request.setCharacterEncoding("UTF-8");
 
@@ -64,29 +53,8 @@ public class MasterLogin extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("master", master);
 
-		//マスターリストページへフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/masterlist.jsp");
-		dispatcher.forward(request, response);
+		//マスターリストページへリダイレクト
+		response.sendRedirect("MasterList");
 
-
-
-
-//		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
-//		boolean masterKey = user.masterLogin(mailAddress, password);
-//
-//		if (!(masterKey)) {
-//			request.setAttribute("errMsg", "入力された値は正しくありません");
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-//			dispatcher.forward(request, response);
-//			return;
-//		}
-//
-//		//データベースに該当データが見つかった場合(ログイン成功時)
-//		// セッションにユーザの情報をセット
-//		HttpSession session = request.getSession();
-//		session.setAttribute("userInfo", user);
-//		//Topページへリダイレクト
-//		response.sendRedirect("Top");
 	}
-
 }

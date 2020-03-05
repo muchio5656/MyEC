@@ -25,31 +25,22 @@ import dao.TriviaDAO;
 public class Top extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public Top() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		//TOPページで使用する乱数の生成
 		Random rand = new Random();
 		int triviaNum = rand.nextInt(10) + 1;
-		int foodNum = rand.nextInt(3) + 1;
+		int foodNum = rand.nextInt(5) + 1;
 
+		//商品ランキング表示用
 		ItemDAO itemDao = new ItemDAO();
 		List<ItemDataBeans> itemRanking = itemDao.ranking();
-
-
+		//本日のおつまみ表示用
 		FoodDAO foodDao = new FoodDAO();
 		List<FoodDataBeans> food = foodDao.bestMuch(foodNum);
 
+		//ウンチクコーナー
 		TriviaDAO dao = new TriviaDAO();
 		TriviaDataBeans trivia = dao.trivia(triviaNum);
 
@@ -62,13 +53,5 @@ public class Top extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }

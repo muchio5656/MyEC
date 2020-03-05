@@ -24,17 +24,7 @@ import dao.DeliveryMethodDAO;
 public class BuyConfirm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public BuyConfirm() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -54,7 +44,7 @@ public class BuyConfirm extends HttpServlet {
 			// 配送料金計算を合計金額に追加
 			totalPrice += userSelectDMB.getPrice();
 
-			UserDataBeans  ub = (UserDataBeans)session.getAttribute("userInfo");
+			UserDataBeans ub = (UserDataBeans) session.getAttribute("userInfo");
 
 			BuyDataBeans bdb = new BuyDataBeans();
 			bdb.setId(ub.getId());

@@ -210,7 +210,7 @@
 					<div class="alert alert-primary" role="alert">美しい酒器</div>
 					<br> <br>
 				</div>
-				<a href="ItemDitaile">
+				<a href="Category?id=6">
 					<div class="row justify-content-center">
 						<div class="col-lg-8 col-md-12">
 							<div id="carouselExampleIndicators" class="carousel slide"
@@ -223,24 +223,27 @@
 								</ol>
 								<div class="carousel-inner" role="listbox">
 									<div class="carousel-item active">
-										<img class="d-block" src="assets/img/104.jpg"
+										<img class="d-block" src="assets/img/106.jpeg"
 											alt="First slide">
 										<div class="carousel-caption d-none d-md-block">
-											<h5>酒器１</h5>
+											<h5>江戸切子 蓋ちょこ 七宝</h5>
 										</div>
 									</div>
+
 									<div class="carousel-item">
+
 										<img class="d-block" src="assets/img/101.jpg"
 											alt="Second slide">
 										<div class="carousel-caption d-none d-md-block">
-											<h5>酒器２</h5>
+											<h5>Fuji江戸切子 Blue/Red</h5>
 										</div>
 									</div>
+
 									<div class="carousel-item">
 										<img class="d-block" src="assets/img/102.jpg"
 											alt="Third slide">
 										<div class="carousel-caption d-none d-md-block">
-											<h5>酒器３</h5>
+											<h5>カンナグラス・ペアセット</h5>
 										</div>
 									</div>
 								</div>
@@ -259,6 +262,7 @@
 				</a>
 			</div>
 		</div>
+
 	</div>
 	<footer class="footer" data-background-color="black">
 		<div class=" container ">

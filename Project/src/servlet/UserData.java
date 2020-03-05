@@ -22,22 +22,8 @@ import dao.UserDAO;
 public class UserData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public UserData() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// セッション開始
-		//				HttpSession session = request.getSession();
 
 		//ユーザデータ更新用
 		String id = request.getParameter("id");
@@ -49,7 +35,6 @@ public class UserData extends HttpServlet {
 		request.setAttribute("user", user);
 
 		//購入履歴用
-
 		BuyDAO buyDao = new BuyDAO();
 		List<BuyDataBeans> userHistory = buyDao.buyHistory(id);
 
@@ -60,9 +45,6 @@ public class UserData extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -82,5 +64,4 @@ public class UserData extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }
