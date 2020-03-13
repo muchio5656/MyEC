@@ -210,7 +210,6 @@
 					<div class="alert alert-primary" role="alert">美しい酒器</div>
 					<br> <br>
 				</div>
-				<a href="Category?id=6">
 					<div class="row justify-content-center">
 						<div class="col-lg-8 col-md-12">
 							<div id="carouselExampleIndicators" class="carousel slide"
@@ -221,31 +220,34 @@
 									<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 									<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 								</ol>
-								<div class="carousel-inner" role="listbox">
-									<div class="carousel-item active">
-										<img class="d-block" src="assets/img/106.jpeg"
-											alt="First slide">
-										<div class="carousel-caption d-none d-md-block">
-											<h5>江戸切子 蓋ちょこ 七宝</h5>
-										</div>
-									</div>
 
-									<div class="carousel-item">
+								<div class="carousel-inner touki" role="listbox">
 
-										<img class="d-block" src="assets/img/101.jpg"
-											alt="Second slide">
-										<div class="carousel-caption d-none d-md-block">
-											<h5>Fuji江戸切子 Blue/Red</h5>
-										</div>
-									</div>
+									<c:set var="first" value="1" />
+									<c:forEach var="item" items="${syuki}">
+										<c:if test="${first == 1}">
+											<div class="carousel-item active">
+															<a href="ItemDetail?id=${item.id}">
+												<img class="d-block" src="assets/img/${item.fileName}"
+													alt="First slide"></a>
+												<div class="carousel-caption d-none d-md-block">
+													<h5>${item.name}</h5>
+												</div>
+											</div>
+										</c:if>
+										<c:if test="${first == 0}">
+											<div class="carousel-item">
+															<a href="ItemDetail?id=${item.id}">
+												<img class="d-block" src="assets/img/${item.fileName}"
+													alt="First slide"></a>
+												<div class="carousel-caption d-none d-md-block">
+													<h5>${item.name}</h5>
+												</div>
+											</div>
+										</c:if>
+										<c:set var="first" value="0" />
+									</c:forEach>
 
-									<div class="carousel-item">
-										<img class="d-block" src="assets/img/102.jpg"
-											alt="Third slide">
-										<div class="carousel-caption d-none d-md-block">
-											<h5>カンナグラス・ペアセット</h5>
-										</div>
-									</div>
 								</div>
 								<a class="carousel-control-prev"
 									href="#carouselExampleIndicators" role="button"
@@ -259,10 +261,8 @@
 							</div>
 						</div>
 					</div>
-				</a>
 			</div>
 		</div>
-
 	</div>
 	<footer class="footer" data-background-color="black">
 		<div class=" container ">

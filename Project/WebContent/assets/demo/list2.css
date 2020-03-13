@@ -17,42 +17,49 @@
 }
 
 .rank {
-	background-color:#ff8e54;
+	background-color: #ff8e54;
 	height: 50px;
-	width:150px;
-	text-align:center;
-	vertical-align:middle;
-	color:white;
-	font-size:20px;
-	font-weight:600;
-	margin-left:100px;
-	padding-top:10px;
+	width: 150px;
+	text-align: center;
+	vertical-align: middle;
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	margin-left: 100px;
+	padding-top: 10px;
 }
 
-.therd{
-background-color:#ff8e54;
+.therd {
+	background-color: #ff8e54;
 	height: 50px;
-	width:150px;
-	text-align:center;
-	vertical-align:middle;
-	color:white;
-	font-size:20px;
-	font-weight:600;
-	margin-left:70px;
-	padding-top:10px;
+	width: 150px;
+	text-align: center;
+	vertical-align: middle;
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	margin-left: 70px;
+	padding-top: 10px;
 }
 
-.card-title{
-	font-family:'Gulim';
-	font-size:50px;
-	font-weight:600;
+.card-title {
+	font-family: 'Gulim';
+	font-size: 50px;
+	font-weight: 600;
 }
-.card-text{
-	font-family:'Gulim';
-		font-size:30px;
-		font-weight:600;
+
+.card-text {
+	font-family: 'Gulim';
+	font-size: 30px;
+	font-weight: 600;
 }
-.alert-primary{
-	font-size:20px;
-	font-weight:600;
+
+.alert-primary {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.touki img {
+	height: 500px;
+	width: 750px;
 }

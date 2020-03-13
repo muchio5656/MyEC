@@ -30,7 +30,6 @@ public class Top extends HttpServlet {
 
 		//TOPページで使用する乱数の生成
 		Random rand = new Random();
-		int triviaNum = rand.nextInt(10) + 1;
 		int foodNum = rand.nextInt(5) + 1;
 
 		//商品ランキング表示用
@@ -42,12 +41,17 @@ public class Top extends HttpServlet {
 
 		//ウンチクコーナー
 		TriviaDAO dao = new TriviaDAO();
-		TriviaDataBeans trivia = dao.trivia(triviaNum);
+		TriviaDataBeans trivia = dao.trivia();
+
+		//酒器コーナー
+		List<ItemDataBeans> syuki = itemDao.syuki();
+
 
 		// リクエストスコープにユーザ一覧情報2をセット
 		request.setAttribute("itemRanking", itemRanking);
 		request.setAttribute("food", food);
 		request.setAttribute("trivia", trivia);
+		request.setAttribute("syuki", syuki);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
 		dispatcher.forward(request, response);

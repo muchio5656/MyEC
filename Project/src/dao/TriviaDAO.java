@@ -1,28 +1,25 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import beans.TriviaDataBeans;
 import database.DBManager;
 
 public class TriviaDAO {
 
-	public TriviaDataBeans trivia(int i) {
+	public TriviaDataBeans trivia() {
 
 		Connection conn = null;
-		String s = String.valueOf(i);
 		try {
 			// データベースへ接続
 			conn = DBManager.getConnection();
-			String sql = "SELECT * FROM trivia WHERE id = ?";
+			String sql = "SELECT * FROM trivia ORDER BY RAND() LIMIT 1";
 
-			//SELECTを実行し、idを元にアイテムデータ取得
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, s);
-			ResultSet rs = pStmt.executeQuery();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
 
 			if (!rs.next()) {
 				return null;
